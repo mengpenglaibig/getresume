@@ -1,0 +1,98 @@
+@media only screen and (max-width: 800px){
+	html{
+		background:#fff;
+	}
+	body {
+		width: 480px;
+		margin: 0 auto;
+		background:#1e243a;
+	}
+	.header{
+		position: static;
+		width: auto;
+		height: auto;
+	}
+	.header .nav{
+		position: static;
+	}
+	.header .contact{
+		display: none;
+	}
+	#myInfo{
+		padding:30px 0;
+	}
+	.wrapper{
+		width: auto;
+		padding: 0 10px;
+	}
+	.skill_detail{
+		display: block;
+		width: auto;
+		position: static;
+	}
+	.intro{
+		position: static;
+		height: auto;
+		padding: 40px 0;
+	}
+	.intro .title{
+		display: none;
+	}
+	.intro .txt{
+		width: auto;
+		position: static;
+		margin-left: 0;
+		line-height: 25px;
+	}
+	.exp{
+		padding: 40px 0;
+	}
+	.exp .exp-content{
+		margin-left:0;
+	}
+	.exp .exp-content .txt{
+		margin-left: 0;
+	}
+	.exp .exp-content li{
+		position: static;
+		border:0;
+		margin-bottom: 30px;
+	}
+	.exp .exp-content .ico{
+		display: none;
+	}
+	.exp .exp-content li:nth-child(even){
+		margin-left: 0;
+		width: auto;
+		text-align: left;
+		border:0;
+	}
+
+	.work .worklist ul{
+		width: auto;
+	}
+	.work .worklist li{
+		width: auto;
+		position: static;
+	}
+	.work{
+		height: auto;
+		padding: 40px 0;
+	}
+	.work .worklist li .img img:hover{
+		transform: none;
+	}
+	.work .worklist li .img span{
+		font-size: 20px
+	}
+	.work .worklist li h4{
+		font-size: 20px;
+	}
+	.work .worklist li .txt p{
+		font-size: 20px;
+	}
+	.weixin .img{
+		display: none;
+	}
+
+}

@@ -1,5 +1,5 @@
 /*@charset "gb2312";*/
-/**Copyright 2007 Qietu Inc. All rights reserved.
+/**Copyright 2007 leixin Inc. All rights reserved.
  * 网站地址: http://www.qietu.com
  * ----------------------------------------------------------------------------
 
@@ -197,6 +197,9 @@ transform:rotate(7deg);
 	margin-top:25px;
 	text-align: center;
 }
+.page1.active .logo2{
+	animation: swing 1s 0.5s both;
+}
 .page1 .list{
 	margin-top:52px;
 	margin-left:375px;
@@ -252,10 +255,14 @@ transform:rotate(7deg);
 	bottom: 54px;
 	left:50%;
 	margin-left:-30px;
+	animation: bounce-up 1.4s linear infinite;
 }
 .page2 .logo2{
 	margin-top: 23px;
 	margin-left:140px;
+}
+.page2.active .logo2{
+	animation: swing 1s 0.5s both;
 }
 .page2 .gift{
 	margin-top:76px;
@@ -275,6 +282,9 @@ transform:rotate(7deg);
 .page3 .logo2{
 	margin-top:35px;
 	margin-left:132px;
+}
+.page3.active .logo2{
+	animation: swing 1s 0.5s both;
 }
 .page3 .list{
 	margin-top:94px;
@@ -326,3 +336,27 @@ transform:rotate(7deg);
 	top:30px;
 	left:128px;
 }
+/*自定义css3动画*/
+    @-webkit-keyframes bounce-up {
+        25% {
+            -webkit-transform: translateY(10px);
+        }
+        50%, 100% {
+            -webkit-transform: translateY(0);
+        }
+        75% {
+            -webkit-transform: translateY(-10px);
+        }
+    }
+
+    @keyframes bounce-up {
+        25% {
+            transform: translateY(10px);
+        }
+        50%, 100% {
+            transform: translateY(0);
+        }
+        75% {
+            transform: translateY(-10px);
+        }
+    }

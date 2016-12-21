@@ -1,0 +1,163 @@
+@media only screen and (max-width: 800px){
+	html{
+		background: #eee;
+	}
+	body {
+		width: 480px;
+		margin: 0 auto;
+		background:#fff;
+	}
+	.wrapper{
+		width:auto;
+	}
+	.header .tele{
+		display: none;
+	}
+	.header .ad{
+		display: none;
+	}
+	.header .logo{
+		left:20px;
+	}
+	.nav{
+		height: auto;
+		background: #006e77;
+
+	}
+	.nav ul{
+		height: auto;
+		overflow: hidden;	
+	}
+	.nav li{
+		margin: 0;
+		width: 25%;
+		text-align: center;
+		position: relative;
+	}
+	.nav li:after{
+		width: 1px;
+		height: 20px;
+		content: '';
+		position: absolute;
+		right: 0;
+		top:50%;
+		margin-top: -10px;
+		background: #00555b;
+	}
+	.hslider{
+		display: none;
+	}
+	.hrow1{
+		padding: 20px;
+	}
+	.hrow1 .main{
+		width: auto;
+		float: none;
+		display: block;
+	}
+	.hrow1 .main .view{
+		float:none;
+		width:auto;
+
+	}
+	.hrow1 .main .view img{
+		width: 440px;
+		
+	}
+	.hrow1 .main .list{
+		width:auto;
+		float: none;
+	}
+	.hrow1 .aside{
+		width: auto;
+		float:none;
+		display: block;
+		margin-top:20px;
+	}
+	.hrow1 .aside .view{
+		width: auto;
+		float:none;
+		display: none;
+	}
+	.hrow1 .aside .list{
+		width: auto;
+		float: none;
+	}
+	.hrow2{
+		margin: 20px;
+	}
+	.hrow2 .main{
+		width: auto;
+		float:none;
+		display: block;
+	}
+	.hrow2 .main .txt{
+		background: none;
+		border:10px solid #019199;
+		width: auto;
+		height: auto;
+		padding: 20px;
+	}
+	.hvideo ul{
+		width: auto;
+	}
+	.hvideo li{
+		width: auto;
+		height: auto;
+		margin:0;
+		float: none;
+	}
+	.hrow2 .aside{
+		width: auto;
+		float:none;
+		display: block;
+	}
+	.hrow3 ul{
+		width: auto;
+	}
+	.hrow3 li{
+		width: auto;
+		float: none;
+		margin-right: 0;
+	}
+	.hrow3 li .head{
+		background: #f63376;
+	}
+	.hrow3 li .body{
+		margin:0;
+		width: auto;
+	}
+	.hrow4{
+		margin:20px;
+	}
+	.hrow4 .main{
+		width: auto;
+		float:none;
+	}
+	.hrow4 .aside{
+		width: auto;
+		float:none;
+	}
+	.hrow4 .aside .body li img{
+		width: 480px;
+	}
+	.footer .info{
+		height: auto;
+		text-align: center;
+		padding:0 20px;
+	}
+	.footer .info .logo{
+		position: static;
+	}
+	.footer .info .txt{
+		margin: 0;
+		padding:0;
+		margin-top: 20px;
+	}
+	.footer .info .txt li{
+		margin-bottom: 10px;
+	}
+	.flink{
+		margin: 20px;
+	}
+}

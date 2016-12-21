@@ -1,0 +1,218 @@
+/*背景*/
+.bg{
+	position:fixed;
+	top:0;
+	bottom:0;
+	right: 0;
+	left: 0;
+}
+.bg ul{
+	width:100%;
+	height: 100%;
+}
+.bg li{
+	background:url() no-repeat center #024567;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+	display: none;
+	z-index: 1;
+}
+.bg li.selected{
+	display: block;
+	z-index: 2;
+}
+/*侧边栏导航*/
+.aside{
+	position: absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	background:url(../imgs/bg1.png) repeat;
+	width: 250px;
+}
+.aside .header{
+	padding-top:21px;
+	text-align: center;
+}
+.aside .sub{
+	display:none;
+}
+.aside .body{
+	margin-top:30px;
+}
+.aside .body li{
+	height: 50px;
+	margin-bottom: 10px;
+	position: relative;
+}
+.aside .body .name .ico{
+	position: absolute;
+	left:60px;
+	top:8px;
+}
+.aside .body .name .txt{
+	margin-left:110px;
+	padding-top:10px;
+}
+.aside .body small{
+	display: block;
+	color:#489ede;
+	text-transform: uppercase;
+	font-size: 10px;
+	line-height: 1;
+}
+.aside .body span{
+	display: block;
+	line-height: 1;
+	margin-top:5px;
+	color:#fff;
+	font-size: 14px;
+}
+.aside .body li.selected .sub,
+.aside .body li:hover .sub{
+	display:block;
+	position: absolute;
+	left:250px;
+	top:0;
+	width: 110px;
+	padding:0 30px;
+	background-color:#1074bf;
+	z-index: 999;
+}
+.aside .body li.selected,
+.aside .body li:hover{
+	background-color:#1074bf;
+}
+.aside .body li .sub dd{
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-bottom: 1px solid #2183cd;
+	color:#fff;
+	
+}
+.aside .footer{
+	/*没写好*/
+	position: absolute;
+	bottom: 0;
+	left:30px;
+	right: 30px;
+	text-align: right;
+	padding-top: 10px;
+	border-top:1px solid #1168a2;
+	font-size: 12px;
+	padding-bottom: 30px;
+	/*距离上面有宽度不知道怎么调整*/
+}
+.index-img{
+	position: absolute;
+	left:50%;
+	margin-left:-252px;
+	top:60px;
+
+}
+.index-news{
+	position:absolute;
+	left: 50%;
+	margin-left:70px;
+	top:360px;
+	width: 320px;
+}
+
+.index-news .body{
+	height: 68px;
+	overflow: hidden;
+}
+
+.index-news .header,
+.index-news .body li{
+	height: 34px;
+	line-height: 34px;
+	font-size: 14px;
+	color:#1074bf;
+	border-bottom: 1px solid rgba(237,237,237,0.21);
+	padding: 0 7px;
+	/*解决ie7，8，9不兼容*/
+	*border-color: #fff;
+
+}
+.index-news .header{
+	font-size: 14px;
+	color: #1074bf;
+}
+
+.index-news .body li{
+	font-size: 12px;
+	color:#fff;
+}
+.index-news .body li a{
+	color:#fff;
+}
+.index-nav{
+	position: absolute; 
+	left:250px;
+	right: 0;
+	top: 500px;
+	background: url(../imgs/bg2.png) repeat;
+	height: 140px;
+}
+.index-nav li{
+	width: 140px;
+	float:left;
+	display: inline;
+	overflow: hidden;
+	border-right: 1px solid #3c362f;
+}
+.index-nav li .wrap{
+	width: 1000px;
+	height: auto;
+	overflow: hidden;
+}
+.index-nav li.selected{
+	width: 520px;
+
+}
+.index-nav li.selected .ico{
+	background: #ec7711;
+}
+.index-nav li .ico{
+	width: 140px;
+	height: 140px;
+	float: left;
+	text-align: center;
+	color:#fff;
+	font-size: 12px;
+}
+.index-nav li .ico span{
+	line-height: 1;
+	margin-top:10px;
+	display: block;
+}
+.index-nav li .ico i{
+	padding-top: 30px;
+	display: block;
+}
+.index-nav li .img{
+	width: 208px;
+	float:left;
+}
+.index-nav li .txt{
+	width: 157px;
+	float:left;
+	color: #fff;
+	padding-left: 15px;
+}
+.index-nav li .txt table{
+	height: 100%;
+}
+
+/*解决小屏幕下兼容问题*/
+@media only screen and (max-width: 1367px){
+	.aside .footer{
+		padding-bottom: 10px;
+	}
+}

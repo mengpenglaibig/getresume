@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="">
+<meta name="format-detection" content="telephone=no">
+<title>钱包积分大事记</title>
+<link rel="stylesheet" href="css/glide.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="page1">
+			<div class="logo">
+				<img src="imgs/logo.png">
+			</div>
+			<div class="logo2">
+				<img src="imgs/img1.png">
+			</div>
+			<div class="list">
+				<ul>
+					<li>
+						<div class="ico"></div>
+						<div class="txt">
+							<h2>2015/7/4</h2>
+							<h3>QQ钱包积分上线</h3>
+						</div>
+					</li>
+					<li>
+						<div class="ico"></div>
+						<div class="txt">
+							<h2>2015/9/14-21</h2>
+							<h3>钱包积分日活动</h3>
+							<h4>(7天抽取7台iphone)</h4>
+						</div>
+					</li>
+					<li>
+						<div class="ico"></div>
+						<div class="txt">
+							<h2>2015/10/25-11/2</h2>
+							<h3>钱包积分日活动</h3>
+							<h4>(京东e卡抢购)</h4>
+						</div>
+					</li>
+					<li>
+						<div class="ico"></div>
+						<div class="txt">
+							<h2>2015/9/14-21</h2>
+							<h3>积分页面改版</h3>
+							<h3>视觉全面升级</h3>
+						</div>
+					</li>
+					<li>
+						<div class="ico"></div>
+						<div class="txt">
+							<h2>2015/12/16</h2>
+							<h3>积分钱包感谢有你</h3>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="arrow">
+				<img src="imgs/img3.png">
+			</div>
+		</div>
+		<div class="page2">
+			<div class="logo">
+				<img src="imgs/logo.png">
+			</div>
+			<div class="logo2">
+				<img src="imgs/img4.png">
+			</div>
+			<div class="gift">
+				<ul>
+					<li>
+						<img src="imgs/img6.png">
+					</li>
+					<li>
+						<img src="imgs/img8.png">
+					</li>
+					<li>
+						<img src="imgs/img9.png">
+					</li>
+					<li>
+						<img src="imgs/img10.png">
+					</li>
+					<li>
+						<img src="imgs/img11.png">
+					</li>
+					<li>
+						<img src="imgs/img12.png">
+					</li>
+					<li>
+						<img src="imgs/img13.png">
+					</li>
+					<li>
+						<img src="imgs/img14.png">
+					</li>
+					<li>
+						<img src="imgs/img15.png">
+					</li>
+				</ul>
+			</div>
+			<div class="arrow">
+				<img src="imgs/img3.png">
+			</div>
+		</div>
+		<div class="page3">
+			<div class="logo">
+				<img src="imgs/logo.png">
+			</div>
+			<div class="logo2">
+				<img src="imgs/logo2.png">
+			</div>
+			<div class="list">
+				<div class="img">
+					<img src="imgs/iphone.png">
+				</div>
+				<div class="txt">
+					<h2>2015、11、16-25</h2>
+					<h2>狂抽15台IPHONE6</h2>
+					<h2>奖品优惠兑奖</h2>
+				</div>
+			</div>
+			<div class="btn">
+				<a href="#">去积分页面</a>
+				<a href="#">分享给好友</a>
+			</div>
+			<div class="tip">
+				温馨提示:新的一年，积分会重新积累
+			</div>
+			<div class="mask">
+			</div>
+			<div class="share">
+				<img src="imgs/img16.png">
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.0.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="js/jquery.glide.js"></script>
+<script type='text/javascript' src='js/imagesloaded.pkgd.min.js'></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/addons.js"></script>
+
+<script>
+	imagesLoaded( $('body'), function(){
+	
+	})
+	$(function(){
+		var glide = $('.glide').glide({
+
+			//autoplay:true,//是否自动播放 默认值 true如果不需要就设置此值
+
+			animationTime:500, //动画过度效果，只有当浏览器支持CSS3的时候生效
+
+			arrows:true, //是否显示左右导航器
+			//arrowsWrapperClass: "arrowsWrapper",//滑块箭头导航器外部DIV类名
+			//arrowMainClass: "slider-arrow",//滑块箭头公共类名
+			//arrowRightClass:"slider-arrow--right",//滑块右箭头类名
+			//arrowLeftClass:"slider-arrow--left",//滑块左箭头类名
+			arrowRightText:"",//定义左右导航器文字或者符号也可以是类
+			arrowLeftText:"",
+
+			nav:true, //主导航器也就是本例中显示的小方块
+			navCenter:true, //主导航器位置是否居中
+			navClass:"slider-nav",//主导航器外部div类名
+			navItemClass:"slider-nav__item", //本例中小方块的样式
+			navCurrentItemClass:"slider-nav__item--current" //被选中后的样式
+		});
+	})
+</script>
+</body>
+</html>
+

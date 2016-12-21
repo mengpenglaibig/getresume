@@ -1,0 +1,275 @@
+/*响应式*/
+
+.gh{
+	float: left;
+	width:32px;
+	height: 32px;
+	margin-left: 15px;
+	cursor: pointer;
+	display: none;
+}
+.gh a{
+	display: block;
+	width:20px;
+	height: 2px;
+	background: #fff;
+	position: relative;
+	top:15px;
+	transition: all 0.3s;
+}
+.gh a:before,
+.gh a:after{
+	content:'';
+	width:20px;
+	height: 2px;
+	position: absolute;
+	top:-5px;
+	background: #fff;
+	transition: all 0.3s;
+}
+.gh a:after{
+	top:auto;
+	bottom: -5px;
+}
+.header.selected .gh a{
+	background: transparent;
+}
+.header.selected .gh a:before,
+.header.selected .gh a:after{
+	top:0;
+	bottom: 0;
+}
+.header.selected .gh a:before{
+	transform: rotate(-45deg);
+}
+.header.selected .gh a:after{
+	transform: rotate(45deg);
+}
+
+ @media only screen and (max-width: 1080px){
+ 	img{
+		max-width: 100%;
+	}
+ 	.wrap{
+		width:780px;
+ 	}
+ 	.header .logo{
+ 		margin-left: 0;
+ 	}
+ 	.header .nav{
+ 		margin-left:20px;
+ 	}
+ 	.page1{
+ 		height: auto;
+ 	}
+ 	.page1 img{
+ 		position: static;
+ 		margin-left: 0;
+ 	}
+ 	.page2{
+ 		padding-top:20px;
+ 	}
+ 	.page2 .nav li a{
+ 		font-size: 18px;
+ 		height: 30px;
+ 		line-height: 30px;
+ 		background-size: 30px;
+ 		padding-right: 35px;
+ 	}
+ 	.page2 .img{
+ 		width: auto;
+ 		position: static;
+ 		margin-top:80px;
+ 	}
+ 	.gb-txt h2{
+ 		font-size: 32px;
+ 	}
+ 	.gb-txt p {
+ 		font-size: 24px;
+ 		line-height: 1.7;
+ 	}
+ 	.gb-txt h3 {
+ 		font-size: 24px;
+ 		margin-top:20px;
+ 	}
+ 	.page3{
+ 		padding-top: 80px;
+ 	}
+ 	.page3 .img{
+ 		width: auto;
+ 		position: static;
+ 	}
+ 	.page4 .img{
+ 		right: -80px;
+ 		width: 250px;
+ 	}
+ 	.page5 .img{
+ 		position: static;
+ 		width:auto;
+ 		margin-left: 0;
+ 	}
+ 	.page6 .img{
+ 		left:-120px;
+ 		width: 300px;
+ 	}
+ 	.page7 .img{
+ 		width: auto;
+ 		position: static;
+ 	}
+ 	.page8 .img{
+ 		width: auto;
+ 		position: static;
+ 	}
+ 	.page9{
+ 		height: auto;
+ 	}
+ 	.page9 img{
+ 		position: static;
+ 		margin-left: 0;
+ 	}
+ 	.page10{
+ 		font-size: 120px;
+ 		padding: 50px 0;
+ 	}
+ 	.page10 .txt{
+ 		width: auto;
+ 		position: static;
+ 	}
+ }
+
+ @media only screen and (max-width: 781px){
+ 	.wrap{
+		width:auto;
+ 	}
+
+ 	.gh{
+ 		display: block;
+ 	}
+ 	.header{
+ 		position: relative;
+ 		z-index: 9;
+ 	}
+ 	.header .logo{
+ 		margin-left: 20px;
+ 	}
+ 	.header .nav{
+		position: absolute;
+		top:32px;
+		left: 0;
+		right: 0;
+		margin-left:0;
+		background:#000;
+		height: 0;
+		overflow: hidden;
+		transition: all 0.5s;
+ 	}
+ 	.header .nav ul{
+ 		padding:20px;
+ 	}
+ 	.header .nav li{
+ 		transform: translate3d(-40px,-40px,0);
+ 		transition: all 0.5s;
+ 		opacity: 0;
+ 	}
+ 	.header .nav li:nth-child(2){
+		transition-delay: 0.1s;
+ 	}
+ 	.header .nav li:nth-child(3){
+		transition-delay: 0.2s;
+ 	}
+ 	.header .nav li:nth-child(4){
+		transition-delay: 0.3s;
+ 	}
+ 	.header .nav li:nth-child(5){
+		transition-delay: 0.4s;
+ 	}
+ 	.header .nav li:nth-child(6){
+		transition-delay: 0.5s;
+ 	}
+ 	.header .nav li:nth-child(7){
+		transition-delay: 0.6s;
+ 	}
+ 	.header .nav li:nth-child(8){
+		transition-delay: 0.7s;
+ 	}
+ 	.header .nav li:nth-child(9){
+		transition-delay: 0.8s;
+ 	}
+ 	.header.selected .nav li{
+ 		transform: translate3d(0,0,0);
+ 		opacity: 1;
+ 	}
+ 	.header.selected .nav{
+		height: 200px;
+ 	}
+ 	.header .search{
+ 		float:right;
+ 	}
+ 	.header .nav li{
+ 		float:none;
+ 		border-bottom: 1px solid #ccc;
+ 		margin-right: 0;
+ 	}
+ 	.page2 .nav{
+ 		margin-right: 20px;
+ 	}
+ 	.page2 .nav li{
+ 		float: none;
+ 		display: block;
+ 		margin-bottom: 5px;
+ 	}
+ 	.page2 .nav li.fr{
+ 		float: none;
+ 	}
+	.page2 .nav li a{
+		display: block;
+		text-align: right;
+	}
+	.page2 .img{
+ 		width: 70%;
+ 		margin:0 auto;
+ 	}
+ 	.page3 .img{
+ 		width: 70%;
+ 		margin:0 auto;
+ 	}
+ 	.page4 .img{
+ 		right: -80px;
+ 		width: 250px;
+ 	}
+ 	.page5 .img{
+ 		position: static;
+ 		width:auto;
+ 		margin-left: 0;
+ 	}
+ 	.page6 .img{
+ 		left:0;
+ 		width: 300px;
+ 	}
+ 	.page7 .img{
+ 		width: 70%;
+ 		margin:0 auto;
+ 	}
+ 	.page8 .img{
+ 		width: 70%;
+ 		margin:0 auto;
+ 	}
+ 	.page9{
+ 		height: auto;
+ 	}
+ 	.page9 img{
+ 		position: static;
+ 		margin-left: 0;
+ 	}
+ 	.page10{
+ 		font-size: 120px;
+ 		padding: 50px 0;
+ 	}
+ 	.page10 .txt{
+ 		width: 70%;
+ 		margin:0 auto;
+ 	}
+ 	.gb-txt{
+ 		padding: 0 20px;
+ 	}
+ 	

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=750" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="">
+<meta name="format-detection" content="telephone=no">
+<title>砸宝箱赢奖品</title>
+<link rel="stylesheet" href="css/slicy.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="wrap">
+	<div class="page-price">
+		<div class="logo2">
+			<img src="imgs/logo2.png">
+		</div>
+		<div class="logo3">
+			<img src="imgs/img4.png">
+		</div>
+		<div class="text">
+			<h3>100元购买风靡全球的测肤神器现金券</h3>
+			<h2>登个记哦,手机号是领奖凭证哦~</h2>
+		</div>
+		<div class="form">
+			<form>
+				<div class="text">
+					<input type="text" name="" placeholder="请输入手机号" >
+				</div>
+				<div class="text sure">
+					<div class="img"><a href="#">
+						<img src="imgs/img2.jpg">
+					</a></div>
+					
+					<input type="text" name="" placeholder="请输入验证码">
+					<div class=""></div>
+				</div>	
+			</form>	
+		</div>
+		<div class="btn">
+			<a href="">确定领取</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.0.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="js/jquery.glide.js"></script>
+<script type='text/javascript' src='js/imagesloaded.pkgd.min.js'></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/addons.js"></script>
+
+<script>
+	$(function(){
+			$('.page-game .list li').on('click',function(){
+					if($(this).hasClass('selected')){
+						alert('ok');
+						return false;
+					}
+					if($('.page-game .list li.selected').size()>2){
+						alert('已经砸了3个');
+						return;
+					}
+					$(this).addClass('selected');
+					setTimeout(function(){
+						var n=3-$('.page-game .list li.selected').size();
+						$('#num').html(n);
+						if(n==0){
+							$('.dialog .body').html('没有砸中，请下次在来')
+						}
+						$('.dialog').show();
+						$('.mask').show();
+
+					},2000)
+					$('.dialog .foot').click(function(){
+						$('.dialog').hide();
+						$('.mask').hide();
+						return false;
+					})
+					
+			})
+	})
+</script>
+</body>
+</html>
+

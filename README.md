@@ -1,2 +1,0 @@
-# getresume
-myresume

@@ -258,6 +258,8 @@ transform:rotate(7deg);
 	left:50%;
 	margin-left:-30px;
 	animation: bounce-up 1.4s linear infinite;
+	-webkit-animation: bounce-up 1.4s linear infinite;
+	-moz-animation: bounce-up 1.4s linear infinite;
 }
 .page2 .logo2{
 	margin-top: 23px;
@@ -265,6 +267,8 @@ transform:rotate(7deg);
 }
 .page2.active .logo2{
 	animation: swing 1s 0.5s both;
+	-webkit-animation: swing 1s 0.5s both;
+	-moz-animation: swing 1s 0.5s both;
 }
 .page2 .gift{
 	margin-top:76px;

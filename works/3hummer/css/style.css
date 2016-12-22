@@ -252,6 +252,11 @@ transform:rotate(7deg);
 	-o-transform:rotate(90deg);
 	-moz-transform:rotate(90deg);
 	transform-origin: right bottom;
+	-webkit-transform-origin: right bottom;
+	-moz-transform-origin: right bottom;
+	-ms-transform-origin: right bottom;
+	-o-transform-origin: right bottom;
+
 
 }
 .page-game .list li.selected .ham{

@@ -25,7 +25,7 @@ $(function(){
 	
 	
 	//页面不足一屏，铺满一屏
-	$('.layout').css('min-height',$(window).height());
+	// $('.layout').css('min-height',$(window).height());
 	//选项卡
 	$('.login-head li').on('click',function(){
 		$(this).addClass('selected').siblings().removeClass();

@@ -227,6 +227,10 @@ transform:rotate(7deg);
 	-o-transition: all 1s;
 	-moz-transition: all 1s;
 	transform: scale(0);
+	-webkit-transform:scale(0);
+	-ms-transform:scale(0);
+	-o-transform:scale(0);
+	-moz-transform:scale(0);
 	transition-delay: 1s;
 }
 .page-game .list li .ham{
@@ -243,16 +247,28 @@ transform:rotate(7deg);
 	-moz-transition:all 1s;
 	opacity: 0;
 	transform:rotate(90deg);
+	-webkit-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
 	transform-origin: right bottom;
 
 }
 .page-game .list li.selected .ham{
 	opacity: 1;
-	transform: rotate(30deg);
+	transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);
+	-o-transform:rotate(30deg);
+	-moz-transform:rotate(30deg);
 }
 .page-game .list li.selected .line{
 	display: block;
 	transform: scale(1);
+	-webkit-transform:scale(1);
+	-ms-transform:scale(1);
+	-o-transform:scale(1);
+	-moz-transform:scale(1);
 }
 .page-game .list li.selected .ham{
 	display: block;

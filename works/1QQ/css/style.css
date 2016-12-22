@@ -199,6 +199,8 @@ transform:rotate(7deg);
 }
 .page1.active .logo2{
 	animation: swing 1s 0.5s both;
+	-webkit-animation:swing 1s 0.5s both;
+	-moz-animation:swing 1s 0.5s both;
 }
 .page1 .list{
 	margin-top:52px;

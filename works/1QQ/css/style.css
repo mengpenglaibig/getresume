@@ -283,9 +283,6 @@ transform:rotate(7deg);
 	margin-top:35px;
 	margin-left:132px;
 }
-.page3.active .logo2{
-	animation: swing 1s 0.5s both;
-}
 .page3 .list{
 	margin-top:94px;
 	margin-left:143px;

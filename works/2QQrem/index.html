@@ -9,13 +9,12 @@
 <meta name="apple-mobile-web-app-title" content="">
 <meta name="format-detection" content="telephone=no">
 <title>钱包积分大事记</title>
-<link rel="stylesheet" href="css/glide.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 	<div class="wrap">
-		<div class="page1">
+		<div class="page1 section">
 			<div class="logo">
 				<img src="imgs/logo.png">
 			</div>
@@ -68,7 +67,7 @@
 				<img src="imgs/img3.png">
 			</div>
 		</div>
-		<div class="page2">
+		<div class="page2 section">
 			<div class="logo">
 				<img src="imgs/logo.png">
 			</div>
@@ -110,7 +109,7 @@
 				<img src="imgs/img3.png">
 			</div>
 		</div>
-		<div class="page3">
+		<div class="page3 section">
 			<div class="logo">
 				<img src="imgs/logo.png">
 			</div>
@@ -127,56 +126,30 @@
 					<h2>奖品优惠兑奖</h2>
 				</div>
 			</div>
-			<div class="btn">
-				<a href="#">去积分页面</a>
-				<a href="#">分享给好友</a>
+			<div class="link">
+				<div class="btn">
+					<a href="#">去积分页面</a>
+					<a href="#" class="sharebtn">分享给好友</a>
+				</div>
+				<div class="tip">
+					温馨提示:新的一年，积分会重新积累
+				</div>
 			</div>
-			<div class="tip">
-				温馨提示:新的一年，积分会重新积累
-			</div>
-			<div class="mask">
-			</div>
-			<div class="share">
+			<div class="dialog">
+				<div class="mask">
+				</div>
+				<div class="share">
 				<img src="imgs/img16.png">
 			</div>
+			</div>
+			
 		</div>
 	</div>
 <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.0.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.js"></script>
-<script type="text/javascript" src="js/jquery.glide.js"></script>
-<script type='text/javascript' src='js/imagesloaded.pkgd.min.js'></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/addons.js"></script>
-
-<script>
-	imagesLoaded( $('body'), function(){
-	
-	})
-	$(function(){
-		var glide = $('.glide').glide({
-
-			//autoplay:true,//是否自动播放 默认值 true如果不需要就设置此值
-
-			animationTime:500, //动画过度效果，只有当浏览器支持CSS3的时候生效
-
-			arrows:true, //是否显示左右导航器
-			//arrowsWrapperClass: "arrowsWrapper",//滑块箭头导航器外部DIV类名
-			//arrowMainClass: "slider-arrow",//滑块箭头公共类名
-			//arrowRightClass:"slider-arrow--right",//滑块右箭头类名
-			//arrowLeftClass:"slider-arrow--left",//滑块左箭头类名
-			arrowRightText:"",//定义左右导航器文字或者符号也可以是类
-			arrowLeftText:"",
-
-			nav:true, //主导航器也就是本例中显示的小方块
-			navCenter:true, //主导航器位置是否居中
-			navClass:"slider-nav",//主导航器外部div类名
-			navItemClass:"slider-nav__item", //本例中小方块的样式
-			navCurrentItemClass:"slider-nav__item--current" //被选中后的样式
-		});
-	})
-</script>
 </body>
 </html>
 

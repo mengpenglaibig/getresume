@@ -369,6 +369,12 @@ html{
 	font-size: 1.2rem;
 	color:#947553;
 }
+.page3 .dialog{
+	display:none;
+}
+.page3 .dialog.show{
+	display:block;
+}
 .page3 .mask{
 	position:absolute;
 	left:0;

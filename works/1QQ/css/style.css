@@ -199,14 +199,23 @@ body{
 	margin-top:65px;
 	margin-left:296px;
 }
+.page1.active .logo{
+	animation: fadeIn 0.5s 0.5s both;
+	-webkit-animation: fadeIn 0.5s 0.5s both;
+	-moz-animation: fadeIn 0.5s 0.5s both;
+	-ms-animation: fadeIn 0.5s 0.5s both;
+	-o-animation: fadeIn 0.5s 0.5s both;
+}
 .page1 .logo2{
 	margin-top:25px;
 	text-align: center;
 }
 .page1.active .logo2{
-	animation: swing 1s 0.5s both;
-	-webkit-animation:swing 1s 0.5s both;
-	-moz-animation:swing 1s 0.5s both;
+	animation: fadeIn 1s 1s both;
+	-webkit-animation:fadeIn 1s 1s both;
+	-moz-animation:fadeIn 1s 1s both;
+	-ms-animation:fadeIn 1s 1s both;
+	-o-animation:fadeIn 1s 1s both;
 }
 .page1 .list{
 	margin-top:52px;
@@ -219,6 +228,41 @@ body{
 .page1 .list li{
 	margin-bottom: 14px;
 	position: relative;
+}
+.page1 .list li:nth-child(1) .txt{
+	animation: fadeIn 1s 1.5s both;
+	-webkit-animation:fadeIn 1s 1.5s both;
+	-moz-animation:fadeIn 1s 1.5s both;
+	-ms-animation:fadeIn 1s 1.5s both;
+	-o-animation:fadeIn 1s 1.5s both;
+}
+.page1 .list li:nth-child(2) .txt{
+	animation: fadeIn 1s 2.0s both;
+	-webkit-animation:fadeIn 1s 2.0s both;
+	-moz-animation:fadeIn 1s 2.0s both;
+	-ms-animation:fadeIn 1s 2.0s both;
+	-o-animation:fadeIn 1s 2.0s both;
+}
+.page1 .list li:nth-child(3) .txt{
+	animation: fadeIn 1s 2.5s both;
+	-webkit-animation:fadeIn 1s 2.5s both;
+	-moz-animation:fadeIn 1s 2.5s both;
+	-ms-animation:fadeIn 1s 2.5s both;
+	-o-animation:fadeIn 1s 2.5s both;
+}
+.page1 .list li:nth-child(4) .txt{
+	animation: fadeIn 1s 3s both;
+	-webkit-animation:fadeIn 1s 3s both;
+	-moz-animation:fadeIn 1s 3s both;
+	-ms-animation:fadeIn 1s 3s both;
+	-o-animation:fadeIn 1s 3s both;
+}
+.page1 .list li:nth-child(5) .txt{
+	animation: fadeIn 1s 3.5s both;
+	-webkit-animation:fadeIn 1s 3.5s both;
+	-moz-animation:fadeIn 1s 3.5s both;
+	-ms-animation:fadeIn 1s 3.5s both;
+	-o-animation:fadeIn 1s 3.5s both;
 }
 .page1 .list li .ico{
 	background:url(../imgs/img2.png) no-repeat;
@@ -267,14 +311,23 @@ body{
 	-webkit-animation: bounce-up 1.4s linear infinite;
 	-moz-animation: bounce-up 1.4s linear infinite;
 }
+.page2.active .logo{
+	animation: fadeIn 0.5s 0.5s both;
+	-webkit-animation: fadeIn 0.5s 0.5s both;
+	-moz-animation: fadeIn 0.5s 0.5s both;
+	-ms-animation: fadeIn 0.5s 0.5s both;
+	-o-animation: fadeIn 0.5s 0.5s both;
+}
 .page2 .logo2{
 	margin-top: 23px;
 	margin-left:140px;
 }
 .page2.active .logo2{
-	animation: swing 1s 0.5s both;
-	-webkit-animation: swing 1s 0.5s both;
-	-moz-animation: swing 1s 0.5s both;
+	animation: fadeIn 1s 1s both;
+	-webkit-animation:fadeIn 1s 1s both;
+	-moz-animation:fadeIn 1s 1s both;
+	-ms-animation:fadeIn 1s 1s both;
+	-o-animation:fadeIn 1s 1s both;
 }
 .page2 .gift{
 	margin-top:76px;
@@ -285,20 +338,117 @@ body{
 	margin-right: 46px;
 	margin-bottom:30px;
 }
+.page2 .gift li{
+	float:left;
+	margin-right: 46px;
+	margin-bottom:30px;
+}
+
+.page2.active .gift li:nth-child(1){
+	animation: bounceIn 1s 1.5s both;
+	-webkit-animation:bounceIn 1s 1.5s both;
+	-moz-animation:bounceIn 1s 1.5s both;
+	-ms-animation:bounceIn 1s 1.5s both;
+	-o-animation:bounceIn 1s 1.5s both;
+}
+.page2.active .gift li:nth-child(2){
+	animation: bounceIn 1s 2s both;
+	-webkit-animation:bounceIn 1s 2s both;
+	-moz-animation:bounceIn 1s 2s both;
+	-ms-animation:bounceIn 1s 2s both;
+	-o-animation:bounceIn 1s 2s both;
+}
+.page2.active .gift li:nth-child(3){
+	animation: bounceIn 1s 2.5s both;
+	-webkit-animation:bounceIn 1s 2.5s both;
+	-moz-animation:bounceIn 1s 2.5s both;
+	-ms-animation:bounceIn 1s 2.5s both;
+	-o-animation:bounceIn 1s 2.5s both;
+}
+.page2.active .gift li:nth-child(4){
+	animation: bounceIn 1s 3s both;
+	-webkit-animation:bounceIn 1s 3s both;
+	-moz-animation:bounceIn 1s 3s both;
+	-ms-animation:bounceIn 1s 3s both;
+	-o-animation:bounceIn 1s 3s both;
+}
+.page2.active .gift li:nth-child(5){
+	animation: bounceIn 1s 3.5s both;
+	-webkit-animation:bounceIn 1s 3.5s both;
+	-moz-animation:bounceIn 1s 3.5s both;
+	-ms-animation:bounceIn 1s 3.5s both;
+	-o-animation:bounceIn 1s 3.5s both;
+}
+.page2.active .gift li:nth-child(6){
+	animation: bounceIn 1s 4s both;
+	-webkit-animation:bounceIn 1s 4s both;
+	-moz-animation:bounceIn 1s 4s both;
+	-ms-animation:bounceIn 1s 4s both;
+	-o-animation:bounceIn 1s 4s both;
+}
+.page2.active .gift li:nth-child(7){
+	animation: bounceIn 1s 4.5s both;
+	-webkit-animation:bounceIn 1s 4.5s both;
+	-moz-animation:bounceIn 1s 4.5s both;
+	-ms-animation:bounceIn 1s 4.5s both;
+	-o-animation:bounceIn 1s 4.5s both;
+}
+.page2.active .gift li:nth-child(8){
+	animation: bounceIn 1s 5s both;
+	-webkit-animation:bounceIn 1s 5s both;
+	-moz-animation:bounceIn 1s 5s both;
+	-ms-animation:bounceIn 1s 5s both;
+	-o-animation:bounceIn 1s 5s both;
+}
+.page2.active .gift li:nth-child(9){
+	animation: bounceIn 1s 5.5s both;
+	-webkit-animation:bounceIn 1s 5.5s both;
+	-moz-animation:bounceIn 1s 5.5s both;
+	-ms-animation:bounceIn 1s 5.5s both;
+	-o-animation:bounceIn 1s 5.5s both;
+}
+
 .page2 .gift li img{
 	height:157px;
 }
 .page3{
 	position: relative;
 }
+.page3.active .logo{
+	animation: fadeIn 0.5s 0.5s both;
+	-webkit-animation: fadeIn 0.5s 0.5s both;
+	-moz-animation: fadeIn 0.5s 0.5s both;
+	-ms-animation: fadeIn 0.5s 0.5s both;
+	-o-animation: fadeIn 0.5s 0.5s both;
+}
 .page3 .logo2{
 	margin-top:35px;
 	margin-left:132px;
+}
+.page3.active .logo2{
+	animation: fadeIn 1s 1s both;
+	-webkit-animation:fadeIn 1s 1s both;
+	-moz-animation:fadeIn 1s 1s both;
+	-ms-animation:fadeIn 1s 1s both;
+	-o-animation:fadeIn 1s 1s both;
 }
 .page3 .list{
 	margin-top:94px;
 	margin-left:143px;
 	position:relative;
+	height: 292px;
+}
+.page3 .list .img{
+	position: absolute;
+	top:0;
+	left:0;
+}
+.page3.active .list .img{
+	animation: fadeInLeft 1s 1.5s both;
+	-webkit-animation:fadeInLeft 1s 1.5s both;
+	-moz-animation:fadeInLeft 1s 1.5s both;
+	-ms-animation:fadeInLeft 1s 1.5s both;
+	-o-animation:fadeInLeft 1s 1.5s both;
 }
 .page3 .list .txt{
 	font-size:24px;
@@ -307,9 +457,23 @@ body{
 	top:90px;
 	left:200px;
 }
+.page3.active .list .txt{
+	animation: fadeInRight 1s 2s both;
+	-webkit-animation:fadeInRight 1s 2s both;
+	-moz-animation:fadeInRight 1s 2s both;
+	-ms-animation:fadeInRight 1s 2s both;
+	-o-animation:fadeInRight 1s 2s both;
+}
 .page3 .list .txt h2{
 	line-height: 1;
 	margin-bottom: 20px;
+}
+.page3.active .link{
+	animation: fadeInUp 1s 2.5s both;
+	-webkit-animation:fadeInUp 1s 2.5s both;
+	-moz-animation:fadeInUp 1s 2.5s both;
+	-ms-animation:fadeInUp 1s 2.5s both;
+	-o-animation:fadeInUp 1s 2.5s both;
 }
 .page3 .btn{
 	margin-top:112px;
@@ -330,6 +494,12 @@ body{
 	margin-top:30px;
 	font-size: 24px;
 	color:#947553;
+}
+.page3 .dialog{
+	display: none;
+}
+.page3 .dialog.show{
+	display: block;
 }
 .page3 .mask{
 	position:absolute;

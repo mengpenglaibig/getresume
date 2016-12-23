@@ -25,5 +25,12 @@ $(function(){
 	//页面不足一屏，铺满一屏
 	$('.wrap').css('min-height',$(window).height());
 	$('.wrap').fullpage();
+
+	$('.sharebtn').on('click',function(){
+		$('.dialog').addClass('show');
+		$('.dialog').on('click',function(){
+			$(this).removeClass('show');
+		})
+	})
 })
 

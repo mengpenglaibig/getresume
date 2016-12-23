@@ -175,6 +175,12 @@ transform:rotate(7deg);
 }
 
 /*-webkit-text-size-adjust:none; /*禁止苹果对部分字体放大处理bug*/
+body{
+	-webkit-text-size-adjust:none; /*禁止苹果对部分字体放大处理bug*/
+	background: #0d0806;
+	width: 750px; margin: 0 auto; position: relative; overflow: hidden;
+	font-family: "Lucida Grande","Microsoft JhengHei","Microsoft YaHei";
+}
 .wrap{
 	width:750px;
 	margin: 0 auto;

@@ -193,6 +193,7 @@ body{
 	height:1137px;
 	background: url(../imgs/bg.jpg) no-repeat;
 	overflow: hidden;
+	background-size: cover;
 	position: relative;
 }
 .logo{

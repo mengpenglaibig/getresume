@@ -174,20 +174,25 @@ transform:rotate(7deg);
 -o-transform:rotate(7deg); 	/* Opera */
 }
 
+/*-webkit-text-size-adjust:none; /*禁止苹果对部分字体放大处理bug*/
+
 body{
-	-webkit-text-size-adjust:none; /*禁止苹果对部分字体放大处理bug*/	
+	-webkit-text-size-adjust:none; /*禁止苹果对部分字体放大处理bug*/
+	background: #0d0806;
+	width: 750px; margin: 0 auto; position: relative; overflow: hidden;
+	font-family: "Lucida Grande","Microsoft JhengHei","Microsoft YaHei";
 }
 .wrap{
 	width:750px;
 	margin: 0 auto;
 	font-size:24px;
-	font-family: "Lucida Grande","Microsoft JhengHei","Microsoft YaHei";
+	color:#fff;
 }
 .page1,
 .page2,
 .page3{
 	height:1137px;
-	background: url(../imgs/bg.jpg) #0d0806 no-repeat;
+	background: url(../imgs/bg.jpg) no-repeat;
 	background-size: cover;
 	overflow: hidden;
 	position: relative;

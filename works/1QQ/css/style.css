@@ -190,8 +190,7 @@ body{
 .page2,
 .page3{
 	height:1137px;
-	background: url(../imgs/bg.jpg) no-repeat;
-	background-size: cover;
+	background: url(../imgs/bg.jpg) #0d0806 no-repeat;
 	overflow: hidden;
 	position: relative;
 }

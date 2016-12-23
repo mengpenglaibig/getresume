@@ -287,4 +287,6 @@ body{
 	right: 0;
 	display: none;
 }
-
+.footer span{
+	margin: 0 3px;
+}

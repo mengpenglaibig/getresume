@@ -24,7 +24,6 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 $(function(){
 	//页面不足一屏，铺满一屏
 	$('.wrap').css('min-height',$(window).height());
-
 	$('.wrap').fullpage();
 })
 

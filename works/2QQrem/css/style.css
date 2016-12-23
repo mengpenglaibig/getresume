@@ -218,8 +218,9 @@ html{
 .page2,
 .page3{
 	height:56.85rem;
-	background: url(../imgs/bg.jpg) no-repeat #000;
+	background: url(../imgs/bg.jpg) no-repeat #0d0806;
 	overflow: hidden;
+	background-size: cover;
 	position: relative;
 }
 .logo{

@@ -8,27 +8,50 @@
 		background:#1e243a;
 	}
 	.header{
-		position: static;
-		width: auto;
-		height: auto;
+		left: auto;
+		top:auto;
+		width: 480px;
 	}
 	.header .nav{
 		position: static;
 	}
+	.header .nav ul li{
+		width: 20%;
+		margin-left:0;
+		text-align: center;
+	}
 	.header .contact{
 		display: none;
 	}
-	#myInfo{
-		padding:30px 0;
+	.header .resumedown{
+		display: none;
 	}
+
 	.wrapper{
 		width: auto;
 		padding: 0 10px;
+	}
+
+	/*#myInfo .skill_f{
+		margin-top:20px;
+	}*/
+	.skill_list h4{
+		display: none;
+	}
+	#myInfo_content .title{
+		margin-top:10px;
 	}
 	.skill_detail{
 		display: block;
 		width: auto;
 		position: static;
+	}
+	#myInfo .skill_f{
+		margin-top:10px;
+	}
+	.skill_list{
+		margin-bottom: 5px;
+		font-size: 15px;
 	}
 	.intro{
 		position: static;
@@ -38,12 +61,19 @@
 	.intro .title{
 		display: none;
 	}
+	.intro .title1{
+		display: block;
+	}
 	.intro .txt{
 		width: auto;
 		position: static;
 		margin-left: 0;
 		line-height: 25px;
+		margin-top:30px;
 	}
+	
+	
+	
 	.exp{
 		padding: 40px 0;
 	}
@@ -67,32 +97,15 @@
 		text-align: left;
 		border:0;
 	}
-
-	.work .worklist ul{
-		width: auto;
+	
+	.worklist{
+		display: none;
 	}
-	.work .worklist li{
-		width: auto;
-		position: static;
-	}
-	.work{
-		height: auto;
-		padding: 40px 0;
-	}
-	.work .worklist li .img img:hover{
-		transform: none;
-	}
-	.work .worklist li .img span{
-		font-size: 20px
-	}
-	.work .worklist li h4{
-		font-size: 20px;
-	}
-	.work .worklist li .txt p{
-		font-size: 20px;
+	.phonew{
+		display: block;
 	}
 	.weixin .img{
 		display: none;
 	}
-
+*/
 }

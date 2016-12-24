@@ -1,5 +1,5 @@
 body{
-	margin-top:76px;
+
 	font-family: '黑体'
 }
 
@@ -16,7 +16,7 @@ body{
 		height: 76px;
 		line-height: 76px;
 		font-size: 16px;
-	  }	   	
+}	   	
 .header .nav{
 	position:absolute;
 	left: 390px;
@@ -39,9 +39,12 @@ body{
 	-ms-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 }
-.header .nav li a:hover{
+/*.header .nav li a:hover{
 	color:#5e6363;
 	text-decoration:none;
+}*/
+.header li.active a{
+	color: #fff!important; 
 }
 .header .contact{
 	position: absolute;
@@ -57,11 +60,16 @@ body{
 /*myInfo*/
 #myInfo{
 	background: url(../img/bg2.png) #1e243a;
-	padding-top:80px;
-	padding-bottom: 80px;
 }
 #myInfo .title{
 	text-align: center;
+}
+#myInfo.active .title{
+	animation: swing 1s 0.5s both;
+	-webkit-animation:swing 1s 0.5s both;
+	-moz-animation:swing 1s 0.5s both;
+	-ms-animation:swing 1s 0.5s both;
+	-o-animation:swing 1s 0.5s both;
 }
 #myInfo span{
 	font-size: 30px;
@@ -200,17 +208,46 @@ body{
 /*intro*/
 .intro{
 	background-color: #1e243a;
-	padding-top:80px;
-	padding-bottom: 80px;
-	position: relative;
-	height: 180px;
+	text-align: center;
+/*	position: relative;*/
 }
+.fp-tableCell{
+	position: relative;
+}
+
 .intro .title{
 	position: absolute;
 	right:90px;
+	top:200px;
+}
+.intro.active .title{
+	animation: bounce 2s 0.5s both;
+	-webkit-animation:bounce 2s 0.5s both;
+	-moz-animation:bounce 2s 0.5s both;
+	-ms-animation:bounce 2s 0.5s both;
+	-o-animation:bounce 2s 0.5s both;
 }
 .intro .title span{
 	font-size: 60px;
+	color:#fec71f;
+	border:1px solid #fec71f;
+	display: inline-block;
+	padding: 5px;
+}
+
+.intro .title1{
+	text-align: center;
+	display: none;
+}
+.intro.active .title1{
+	animation: swing 1s 0.5s both;
+	-webkit-animation:swing 1s 0.5s both;
+	-moz-animation:swing 1s 0.5s both;
+	-ms-animation:swing 1s 0.5s both;
+	-o-animation:swing 1s 0.5s both;
+}
+.intro .title1 span{
+	font-size: 30px;
 	color:#fec71f;
 	border:1px solid #fec71f;
 	display: inline-block;
@@ -220,10 +257,9 @@ body{
 	color:#cfd1d1;
 	font-size: 18px;
 	width: 520px;
-	position: absolute;
-	left:50%;
-	margin-left: -260px;
 	line-height: 30px;
+	display: inline-block;
+	text-align:justify
 }
 .intro .txt span{
 	font-weight: bold;
@@ -244,6 +280,13 @@ body{
 .exp .title{
 	color:#fec71f;
 	text-align:center;
+}
+.exp.active .title{
+	animation: swing 1s 0.5s both;
+	-webkit-animation:swing 1s 0.5s both;
+	-moz-animation:swing 1s 0.5s both;
+	-ms-animation:swing 1s 0.5s both;
+	-o-animation:swing 1s 0.5s both;
 }
 .exp .title span{
 	font-size: 30px;
@@ -301,6 +344,27 @@ body{
 	font-size: 18px;
 	color:#fff;
 }
+.exp.active .exp-content li:nth-child(1) .txt{
+	animation: fadeIn 1s 1s both;
+	-webkit-animation:fadeIn 1s 1s both;
+	-moz-animation:fadeIn 1s 1s both;
+	-ms-animation:fadeIn 1s 1s both;
+	-o-animation:fadeIn 1s 1s both;
+}
+.exp.active .exp-content li:nth-child(2) .txt{
+	animation: fadeIn 1s 1.5s both;
+	-webkit-animation:fadeIn 1s 1.5s both;
+	-moz-animation:fadeIn 1s 1.5s both;
+	-ms-animation:fadeIn 1s 1.5s both;
+	-o-animation:fadeIn 1s 1.5s both;
+}
+.exp.active .exp-content li:nth-child(3) .txt{
+	animation: fadeIn 1s 2s both;
+	-webkit-animation:fadeIn 1s 2s both;
+	-moz-animation:fadeIn 1s 2s both;
+	-ms-animation:fadeIn 1s 2s both;
+	-o-animation:fadeIn 1s 2s both;
+}
 /*.exp .exp-content li:last-child{
 	border:0;
 }*/
@@ -309,12 +373,16 @@ body{
 /*work*/
 .work{
 	background-color: #1e243a;
-	padding-top:80px;
-	padding-bottom:80px;
-	height: 1000px;
 }
 .work .title{
 	text-align: center;
+}
+.work.active .title{
+	animation: swing 1s 0.5s both;
+	-webkit-animation:swing 1s 0.5s both;
+	-moz-animation:swing 1s 0.5s both;
+	-ms-animation:swing 1s 0.5s both;
+	-o-animation:swing 1s 0.5s both;
 }
 .work .title span{
 	font-size: 30px;
@@ -332,21 +400,22 @@ body{
 	margin-top:40px;
 }
 .work .worklist ul{
-	width: 1205px;
-	position: relative;
 	height: auto;
+	overflow: hidden;
+	width: 1205px;
 }
 .work .worklist li{
-	width: 256.25px;
+	width: 216px;
 	background: #fff;
-	padding:20px;
+	padding:10px;
+	float:left;
 	margin-right: 5px;
 	margin-bottom:10px;
 	border-radius: 5px;
 	text-align: center;
 	transition: all 0.3s;
-	position: absolute;
 	transition: all 1s;
+
 }
 .work .worklist li:hover{
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06), 0 2px 10px 0 rgba(0, 0, 0, 0.02);
@@ -356,6 +425,7 @@ body{
 	position: relative;
 	text-align: center;
 	overflow: hidden;
+	height: 150px;
 }
 .work .worklist li .img img{
 	transition: all 1s;
@@ -400,4 +470,51 @@ body{
 	color:#cfd1d1;
 	position: relative;
 	left:10px;
+}
+.weixin.active .txt{
+	animation: tada 1s 1s both;
+	-webkit-animation:tada 1s 1s both;
+	-moz-animation:tada 1s 1s both;
+	-ms-animation:tada 1s 1s both;
+	-o-animation:tada 1s 1s both;
+}
+/*改变fullpage导航栏颜色*/
+#fp-nav ul li a.active span,  
+.fp-slidesNav ul li a.active span {  
+    background: #fff; /*这里设置的是活动导航的颜色*/  
+}  
+#fp-nav ul li a span,  
+.fp-slidesNav ul li a span {  
+    border: 1px solid #fff;/*这里设置的是非活动导航的颜色*/  
+}  
+.phonew{
+	display: none;
+	margin-top:15px;
+}
+.phonew li{
+	height: 50px;
+	background:#fff;
+	margin-bottom: 5px;
+	line-height: 50px;
+	font-size: 17px;
+	border-radius: 5px;
+	position: relative;
+	background: rgba(255,255,255,0.8);
+}
+.phonew li .txt{
+	margin-left:40px;
+}
+.phonew li .ico{
+	background: url(../img/img11.png) center no-repeat;
+	position: absolute;
+	top:0;
+	right: 0;
+	width:50px;
+	height: 50px;
+	text-align: center;
+}
+.phonew li .img{
+	position: absolute;
+	left:10px;
+	top:2px;
 }

@@ -501,6 +501,9 @@ body{
 	position: relative;
 	background: rgba(255,255,255,0.8);
 }
+.phonew a{
+	text-decoration: none;
+}
 .phonew li .txt{
 	margin-left:40px;
 }

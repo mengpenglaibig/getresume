@@ -395,10 +395,7 @@
 			
 								<div class="ico">
 								</div>
-							</a>
-							
-					
-							
+							</a>	
 						</li>
 						<li>
 							<a href="works/2QQrem/index.html">
@@ -568,7 +565,13 @@
 	viewport.content = 'target-densitydpi=device-dpi, width=' + 480 + 'px, user-scalable=no';
 	head.length > 0 && head[head.length - 1].appendChild(viewport);    
    
-}	
+};
+	$('.erweima a').on('click',function(){
+			$(this).parent().parent().find('.mask').show();
+		})
+		$('.work .mask .close').on('click',function(){
+			$(this).parent().hide();
+		})
 	})
 </script>
 </body>

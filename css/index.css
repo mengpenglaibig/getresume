@@ -427,6 +427,37 @@ body{
 	overflow: hidden;
 	height: 150px;
 }
+.work .mask{
+	position: absolute;
+	background: rgba(0,0,0,0.8);
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: none;
+}
+.work .erweima{
+	margin-top:5px;
+}
+.work .mask table{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.work .mask img{
+	width: 200px;
+	height: 200px;
+}
+.work .mask .close{
+	width: 25px;
+	height: 25px;
+	background: #fb7614;
+	position: absolute;
+	top:0;
+	right: 0;
+	line-height: 25px;
+	cursor: pointer;
+}
 .work .worklist li .img img{
 	transition: all 1s;
 }

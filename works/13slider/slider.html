@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style type="text/css">
+      html,body,ul,li{
+        margin:0;
+        padding:0;
+      }
+      a{
+        text-decoration:none;
+      }
+      ul{
+        list-style: none;
+      }  
+      .wrap{
+        width:390px;
+        height:207px;
+        position:relative;
+        overflow: hidden;
+        margin:0 auto;
+      }
+      
+      .img-ct{
+        position:absolute;
+      }
+      .img-ct li{
+        float:left;
+      }
+      .img-ct img{
+        width:390px;
+        height:207px;
+      }
+      .button{
+        position:absolute;
+        font-size: 24px;
+        width:36px;
+        height:36px;
+        top:50%;
+        margin-top:-18px;
+        background:#ccc;
+        text-align: center;
+        border-radius: 36px;
+        line-height: 36px;
+        opacity: 0.8;
+      }
+      .button:hover{
+        opacity: 1;
+      }
+      .pre{
+        left:10px;
+      }
+      .next{
+        right:10px;
+      }
+      .contarl-pannel{
+        position: absolute;
+        bottom:10px;
+        left:50%;
+        transform: translateX(-50%);
+      }
+      .contarl-pannel li{
+        float: left;
+        width:40px;
+        height:5px;
+        background-color: #fff;
+        margin-left:5px;
+        cursor:pointer;
+        border-radius: 5px;
+      }
+      .contarl-pannel .hover{
+        background-color:#ccc;
+      }
+      .intro{
+        text-align: center;
+        margin:50px 0;
+      }
+  </style>
+  <script type="text/javascript" src="jquery.js">
+  </script>
+  
+
+
+</head>
+
+<body>
+  <div id="ct1" class="wrap">
+    <ul class="img-ct">
+      <li><img src="1.jpg"></li>
+      <li><img src="2.jpg"></li>
+      <li><img src="3.jpg"></li>
+      <li><img src="4.jpg"></li>
+    </ul>
+    <a href="#" class="pre button"><</a>
+    <a href="#" class="next button">></a>
+    <ul class="contarl-pannel">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div id="ct2" class="wrap">
+    <ul class="img-ct">
+      <li><img src="1.jpg"></li>
+      <li><img src="2.jpg"></li>
+      <li><img src="3.jpg"></li>
+      <li><img src="4.jpg"></li>
+    </ul>
+    <a href="#" class="pre button"><</a>
+    <a href="#" class="next button">></a>
+    <ul class="contarl-pannel">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="intro">
+  <h3>简述实现简单的左右运动幻灯片轮播特效</h3>
+      <p>| 实现思路是首先拷贝元素的首位节点，当滑入到拷贝节点的时候，让其位置迅速恢复到原始位置</p>
+      <p>| 这里用了面向对象，在原型中创建共有方法，只需要new一个对象，就可以实现页面中多个轮播</p>
+  </div>
+  <script type="text/javascript">
+      
+            //构造函数
+            function Wrap($wrap){
+
+              this.$wrap=$wrap;
+              var $ct=this.$ct=$wrap.find('.img-ct');
+              this.$items=$ct.children();
+              this.itemsNum=this.$items.size();
+              this.itemsWidth=this.$items.width();
+              this.$pre=$wrap.find('.pre');
+              this.$next=$wrap.find('.next');
+              this.$pannel=$wrap.find('.contarl-pannel')
+              this.clock=false;
+              this.nowIndex=0;
+
+              $ct.append(this.$items.first().clone());
+              $ct.prepend(this.$items.last().clone());
+              this.itemsNewNum=$ct.children().size();
+              $ct.css({left:0-this.itemsWidth,width:this.itemsWidth*this.itemsNewNum});
+              this.doMove();
+              this.turnPanal();
+              this.setBullet();
+
+            }
+            
+            //原型
+            Wrap.prototype={
+
+              doMove:function(){
+                var _this=this;
+                this.$pre.on('click',function(){
+                    _this.playPre();
+                })
+                this.$next.on('click',function(){
+                    _this.playNext();
+                })
+              },
+
+              turnPanal:function(){
+                  var _this=this;
+                  this.$pannel.find('li').on('click',function(){
+                    var idx=$(this).index();
+                    if(idx>_this.nowIndex){
+                      _this.playNext(idx-_this.nowIndex);
+                    }else if(idx<_this.nowIndex){
+                      _this.playPre(_this.nowIndex-idx);
+                    }
+                   
+                  })
+              },
+
+              playNext:function(idx){
+                  if(this.clock){return};
+                  this.clock=true;
+                  var idx=idx||1;
+                  var _this=this;
+              this.$ct.animate({left:'-='+this.itemsWidth*idx},function(){
+                    _this.nowIndex=(_this.nowIndex+idx)%_this.itemsNum;
+                  if(_this.nowIndex===0){
+                    _this.$ct.css({left:0-_this.itemsWidth});
+                  }
+                   _this.clock=false;
+                  _this.setBullet();
+              })
+            },
+
+            playPre:function(idx){
+                  if(this.clock){return};
+                  this.clock=true;
+                  var _this=this;
+                  var idx=idx||1;
+              this.$ct.animate({left:'+='+this.itemsWidth*idx},function(){
+                      //   *       
+                      // 4 1 2 3 4 1
+                    _this.nowIndex=(_this.itemsNum+_this.nowIndex-idx)%_this.itemsNum;
+                    if(_this.nowIndex===(_this.itemsNum-1)){
+                      _this.$ct.css({left:0-_this.itemsWidth*_this.itemsNum});
+                    }
+                  _this.clock=false;
+                  _this.setBullet();
+              })
+            },
+            
+            playAuto:function(){
+                  var _this=this;
+                  setInterval(function(){
+                    _this.playPre()
+                  },3000)
+            },
+
+            setBullet:function(){
+             
+                  this.$pannel.children().removeClass('hover').
+                                          eq(this.nowIndex).addClass('hover');
+            }
+
+
+            }
+       
+            $('.wrap').each(function(){
+              new Wrap($(this));
+            })
+
+  </script>
+</body>
+</html>

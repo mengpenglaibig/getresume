@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS Bin</title>
+<style type="text/css">
+  html,body{
+    height:100%;
+  }
+  a{
+    text-decoration:none;
+    color:#fff;
+  }
+  .wrap{
+    width:328px;
+    position: absolute;
+    left:50%;
+    top:30%;
+    /*margin-left:-164px;*/
+    padding-bottom:20px;
+    background:#eeeeee;
+    border-radius: 10px;
+  }
+  .btn{
+    width:50px;
+    background:#e33100;
+    padding:5px;
+    border-radius: 5px;
+    margin-left:4px;
+  }
+  .footer{
+    text-align: center;
+  }
+  .wrap .header{
+    background: #676666;
+    padding:10px 0 10px 20px;
+    color:#fff;
+    font-weight:bold;
+  }
+  .wrap .header a{
+    float:right;
+    padding-right:10px;
+  }
+  .wrap p{
+    padding-left:20px;
+  }
+  .aclose{
+    cursor: pointer;
+  }
+
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+
+  
+  
+</script>
+</head>
+
+<body>
+  <button id="btn1">打开1</button>
+  <button id="btn2">打开2</button>
+  <button id="btn3">打开3</button>
+  <button id="btn4">打开4</button>
+  <button id="btn5">打开5</button>
+  <h4>插件说明</h4>
+  <p>封装了功能，可以根据用户传递参数进行配置，可以自定义弹窗内容,title,和确认按钮的function</p>
+
+  <script type="text/javascript">
+       function Dialog(){
+        this.createdialog();
+        this.dialogMove();
+    };
+
+       Dialog.prototype={
+       
+        open:function(opts){
+            this.opts=opts;
+            this.setsimple();
+            this.close();
+            this.confirm();
+        },
+        
+        close:function(){
+            var _this=this;
+            var $dialog=this.dialog;
+            $dialog.find('.btn-close').on('click',function(e){
+               e.preventDefault();
+               if(_this.opts.onClose){
+                  _this.opts.onClose();
+               };
+               _this.closeDialog();
+            })
+
+        },
+        confirm:function(){
+            var _this=this;
+            var $dialog=this.dialog;
+            $dialog.find('.btn-confirm').on('click',function(e){
+               e.preventDefault();
+               if(_this.opts.onConfirm){
+                _this.opts.onConfirm();
+               };
+               _this.closeDialog();
+            })
+
+        },
+
+
+        createdialog:function(){
+            var node='<div class="wrap">'+'<div class="header">'+'<span class="title"></span>'+'<a class="btn-close aclose">x</a>'+
+            '</div>'+'<p>hello</p>'+'<div class="footer">'+
+              '<a href="#" class="btn btn-confirm">确认</a>'+'<a href="#" class="btn btn-close">取消</a>'+
+                '</div>'+'</div>';
+            this.dialog=$(node);
+            $('body').append(this.dialog);
+
+        },    
+
+        setsimple:function(){
+            var $dialog=this.dialog;
+            $dialog.find('.title').html(this.opts.title);
+            $dialog.find('p').html(this.opts.message);
+            if(this.opts.isShowCloseBtn===false){
+              this.hideClose();
+            };
+            if(this.opts.isShowConfirmBtn===false){
+              this.hideConfirm();
+            };
+            if(!this.opts.title){
+              this.hideHead();
+            }
+
+        },
+
+        dialogMove:function(){
+
+            $('.wrap').on('mousedown',function(e){
+              var _this=$(this)
+              disX=e.clientX-$(this).offset().left;
+              disY=e.clientY-$(this).offset().top;
+            $(document).on('mousemove',function(e){
+              _this.css('left',e.clientX-disX);
+              _this.css('top',e.clientY-disY);
+            });
+            $(document).on('mouseup',function(){
+                $(this).unbind('mousemove');
+            })
+        })
+    },
+
+      hideClose:function(){
+          var $dialog=this.dialog;
+          $dialog.find('.btn-close').eq(1).css('display','none');
+      },
+      hideConfirm:function(){
+           var $dialog=this.dialog;
+           $dialog.find('.btn-confirm').css('display','none');
+      },
+      hideHead:function(){
+           var $dialog=this.dialog;
+           $dialog.find('.header').css('display','none');
+      },
+      closeDialog:function(){
+           this.dialog.hide();
+      }
+      };
+
+
+    $('#btn1').on('click',function(){
+      var tpl='title1';
+      var diglog1=new Dialog();
+          diglog1.open({
+            isShowCloseBtn: true,
+            isShowConfirmBtn: false,
+            message:tpl,
+            // onClose: function(){
+            //     alert('close')
+            // },
+            // onConfirm: function(){
+            //     alert('确定');
+            // }              
+    });
+          
+
+    // function createNode(){
+    //     var node='<div class="wrap">'+'<p>hello,这里是饥人谷</p>'+
+    //              '<div class="footer">'+'<a class="btn">取消</a>'+
+    //              '</div>'+'</div>'
+       
+    //     $('body').append(node);
+    // }
+    // createNode()
+
+    // $('.wrap').on('mousedown',function(e){
+    //       var _this=$(this)
+    //       disX=e.clientX-$(this).offset().left;
+    //       disY=e.clientY-$(this).offset().top;
+    //       $(document).on('mousemove',function(e){
+    //          _this.css('left',e.clientX-disX)
+    //           _this.css('top',e.clientY-disY)
+    //       });
+    //       $(document).on('mouseup',function(){
+    //             $(this).unbind('mousemove');
+    //       })
+    })
+
+    // $('.btn').on('click',function(){
+    //       $('.wrap').css('display','none');
+    // })
+  
+
+    $('#btn2').on('click',function(){
+          var tpl='<a href="#">inner</a>';
+          var diglog2=new Dialog();
+              diglog2.open({
+                isShowCloseBtn: true,
+                isShowConfirmBtn: false,
+                message:tpl
+              })          
+        });
+    
+
+
+      
+      $('#btn3').on('click',function(){
+          var tpl='<ul>'+'<li>列表1</li>'+'<li>列表2</li>'+'<li>列表1</li>'+'<li>列表1</li>'+'</ul>';
+          var diglog3=new Dialog();
+              diglog3.open({
+                title:'title3',
+                isShowCloseBtn: true,
+                isShowConfirmBtn: true,
+                message: tpl,
+                onClose: function(){
+                alert('close')
+                },
+                onConfirm: function(){
+                alert('确定?');
+            }          
+              })
+      });
+
+      $('#btn4').on('click',function(){
+          var tpl='hello'  
+          var dialog4 = new Dialog();
+            dialog4.open({
+            title: 'inner4',
+            message: tpl,
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true,
+            onClose: function(){
+              alert('close')
+            },
+            onConfirm: function(){
+              alert('确定');
+            }
+        });
+      });
+
+       $('#btn5').on('click',function(){
+          var tpl='hello'  
+          var dialog4 = new Dialog();
+            dialog4.open({
+            title: 'title5',
+            message: tpl,
+            isShowCloseBtn: false,
+            isShowConfirmBtn: false
+        });
+      });
+  </script>
+      
+ <!--  <div class="wrap"> 
+      <div class="header">
+        <span>欢迎来到饥人谷</span>
+        <a>x</a>
+      </div>
+      <p></p>
+      <div class="footer">
+        <a href="#" class="btn">确认</a>
+        <a href="#" class="btn">取消</a>
+      </div>
+  </div> -->
+ 
+</body>
+</html><!--

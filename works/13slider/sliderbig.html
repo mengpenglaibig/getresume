@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style type="text/css">
+      html,body,ul,li,p{
+        margin:0;
+        padding:0;
+      }
+      li{
+        list-style: none;
+      }
+      a{
+        text-decoration: none;
+      }
+      html,body,#head,#head .wrap,#head .imgPa{
+        height:100%;
+        width:100%;
+      }
+      .wrap{
+        position:relative;
+        width:310px;
+        height:206px;
+        overflow: hidden;
+      }
+      .wrap .imgPa{
+        position:absolute;
+      }
+    /*  .wrap .imgPa:after{
+        content:"";
+        height:0;
+        display: block;
+        clear:both;
+      }*/
+      .wrap .item{
+        float:left;
+        height:100%;
+        position:relative;
+      }
+      .wrap .cover{
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+      .arrow{
+        position:absolute;
+        width:36px;
+        height:36px;
+        top:50%;
+        margin-top:-18px;
+        line-height: 36px;
+        text-align: center;
+        font-size:26px;
+        background-color: #ccc;
+        color:#fff;
+        border-radius: 36px;
+        opacity: 0.7;
+      }
+      
+      .arrow:hover{
+        opacity: 1;
+      }
+
+      .pre{
+        left: 10px;
+      }
+
+      .next{
+        right:10px;
+      }
+      
+      .wrap .main{
+        position: absolute;
+        width:600px;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        color:#ccc;
+        z-index: 1; 
+      }
+
+
+      .control-pannel{
+        position: absolute;
+        bottom:10px;
+        left:50%;
+        transform: translateX(-50%);
+      }
+      
+      .control-pannel li{
+        width:16px;
+        height:4px;
+        border-radius: 2px;
+        background:#fff;
+        display:inline-block;
+      }
+      .control-pannel .active{
+        background:#666;
+      }
+  </style>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script>
+  	   $(function(){
+              var $wrap=$('.imgPa'),//获取父元素
+                  $items=$wrap.children();//储存下来了，4个原始的LI。
+              var itemsNum=$items.size();//储存克隆元素之前子元素个数
+              var $contralPannel=$('.control-pannel');//获取下方控制面板
+              var itemWidth=$(window).width();//获取子元素图片宽度
+              
+
+              $wrap.prepend($items.last().clone()); //克隆最后元素
+              $wrap.append($items.first().clone()); //克隆开头元素
+              $wrap.find('.item').css('width',itemWidth);
+              $wrap.find('.cover').css('width',itemWidth);
+
+              var realNumber=$wrap.children().size(); //计算出插入后的元素长度
+              $wrap.css({ // 将抽动面板初始化
+                width:realNumber*itemWidth,
+                left:0-itemWidth
+              })
+
+
+              $('.next').on('click',function(){
+                  playNext();
+              });
+              $('.pre').on('click',function(){
+                  playPre();
+              })
+
+
+              var currentIndex=0;
+              var lock=false;
+              
+              $contralPannel.find('li').on('click',function(){ 
+                  var idx=$(this).index();
+                  if(idx>currentIndex){
+                    playNext(idx-currentIndex);
+                  }else if(idx<currentIndex){
+                    playPre(currentIndex-idx);
+                  }
+              })
+
+              setBg(1);
+             
+              function playNext(idx){
+                  if(lock)return;
+                  lock=true;
+                  setBg(currentIndex+2);
+                  var index=idx||1;
+                  $wrap.animate({left:'-='+(itemWidth*index)},function(){
+                    currentIndex=(currentIndex+index)%itemsNum;
+                    if(currentIndex===0){
+                      $wrap.css({left:0-itemWidth})
+                    }
+                    lock=false;//加锁防止过多点击
+                    pannelContorl()
+                  })
+
+              }
+
+              function playPre(idx){
+                    if(lock)return;
+                    lock=true;
+                    setBg(currentIndex);
+                    var index=idx||1;
+                  $wrap.animate({left:'+='+(itemWidth*index)},function(){
+                            currentIndex = (itemsNum + currentIndex - index)%itemsNum;
+            if(currentIndex === (itemsNum - 1)){
+              $wrap.css({left: 0-itemWidth*itemsNum});;
+            }
+
+                    lock=false;
+                    pannelContorl()
+                  })
+              }
+
+              function pannelContorl(){
+                   $contralPannel.find('li').removeClass('active')
+                                 .eq(currentIndex).addClass('active')
+              }
+
+              function setBg(idx){
+                  var idx=idx||0,
+                  $node=$wrap.children().eq(idx),
+                  $cover=$node.find('.cover'),
+                  imgUrl=$cover.attr('data-img');
+                  if($node.data('isBgSet'))return;
+                  $cover.css('background-image','url('+imgUrl+')');
+                  $node.data('isBgSet',true);
+              }
+
+
+       })
+
+
+     
+  </script>	
+
+</head>
+
+<body>
+<div id="head">
+  <div class="wrap">
+      <ul class="imgPa">
+        <li class="item">
+          <div class="cover" data-img="1.jpg"></div>
+          <div class="main">
+            <h3>这是哪国的国旗</h3>
+            <p>不知道</p>
+          </div>
+        </li>
+        <li class="item">
+          <div class="cover" data-img="2.jpg"></div>
+          <div class="main">
+            <h3>这这是哪国的国旗</h3>
+            <p>不知道</p>
+          </div>
+        </li>
+        <li class="item">
+          <div class="cover" data-img="3.jpg"></div>
+          <div class="main">
+            <h3>这这这是哪国的国旗</h3>
+            <p>不知道</p>
+          </div>
+        </li>
+        <li class="item">
+          <div class="cover" data-img="4.jpg"></div>
+          <div class="main">
+            <h3>这这这这是哪国的国旗</h3>
+            <p>不知道</p>
+          </div>
+        </li>
+      </ul>
+      <a class="pre arrow" href="#"><</a>
+      <a class="next arrow" href="#">></a>
+      <ul class="control-pannel">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+  </div>
+</div>
+</body>
+</html>

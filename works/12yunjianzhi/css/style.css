@@ -1,0 +1,541 @@
+/*@charset "gb2312";*/
+/**Copyright 2007 Qietu Inc. All rights reserved.
+ * 网站地址: http://www.qietu.com
+ * ----------------------------------------------------------------------------
+
+ html{-webkit-text-size-adjust:none; /*解决chrome浏览器下字体不能小于12px*/}
+ body{ color:#000000; font-family:Verdana, Arial, Helvetica, sans-serif;}
+ * {}
+a{outline:none; text-decoration:none;} a:hover{ text-decoration:underline;}
+html{zoom:1;}html *{outline:0;zoom:1;} html button::-moz-focus-inner{border-color:transparent!important;} 
+body{overflow-x: hidden; font-size:12px;} body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;} table{/*border-collapse:collapse;border-spacing:0;*/} fieldset,a img{border:0;} address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;} li{list-style:none;} caption,th{text-align:left;} h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;} q:before,q:after{content:'';}
+input[type="submit"], input[type="reset"], input[type="button"], button { -webkit-appearance: none; /*去掉苹果的默认UI来渲染按钮*/} em,i{ font-style:normal;}
+
+
+
+/**
+ +------------------------------------------------------------------------------
+ * Public Class
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }.clearfix {display:block;}.clear{ clear:both;}/* 清除浮动*/
+.colwrapper { overflow:hidden; zoom:1 /*for ie*/; margin:5px auto; }/* 高度自适应 */ 
+.strong{ font-weight: bold;} .left{ float: left;} .right{ float: right;} .center{ margin:0 auto; text-align:center;}
+.show{ display:block; visibility:visible;}.hide{ display: none; visibility:hidden;}
+.block{ display:block;} .inline{ display:inline;}
+.transparent{filter:alpha(opacity=50); -moz-opacity:0.5;/** Firefox 3.5即将原生支持opacity属性，所以本条属性只在Firefox3以下版本有效 ***/ -khtml-opacity: 0.5; opacity: 0.5; } .break{ word-wrap:break-word;overflow:hidden; /*word-break:break-all;*/}
+
+.tal{ text-align:left} .tar{ text-align:right;}
+
+/*文字两侧对齐*/
+.justify {
+	text-align:justify;
+	text-justify:distribute-all-lines;/*ie6-8*/
+	text-align-last:justify;/* ie9*/
+	-moz-text-align-last:justify;/*ff*/
+	-webkit-text-align-last:justify;/*chrome 20+*/
+}
+
+.toe{
+	/*超出省略号*/
+	 word-break:keep-all;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){/* chrome*/
+	.justify:after{
+		content:".";
+		display: inline-block;
+		width:100%;
+		overflow:hidden;
+		height:0;
+	}
+}
+
+/* 兼容IE6的定位属性fixed，固定不动样式 */
+.fixed{
+	position:fixed; 
+	clip:rect(0 100% 100% 0);
+	_position:absolute;
+	
+	/* 底部 */
+	bottom:0px;
+	left:0px;
+	_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight);
+	/*_left:expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth);*/
+	
+	/* 左侧 */
+	/*left:0px;*/
+	/*_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight);*/
+	/*_left:expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth);*/
+}
+/* 解决固定层在IE6下闪的问题 */
+*html{
+	background-image:url(about:blank);
+	background-attachment:fixed;
+}
+
+
+/*png图片ie6下透明滤镜实现写法*/
+.pngimg{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='images/x.png');}
+
+/**
+ +------------------------------------------------------------------------------
+ * FCK 兼容解决方案
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+em{ font-style:italic !important;} strike{ text-decoration:line-through !important;} strong{ font-weight:bold !important;} u{ text-decoration:underline !important;}
+
+/**
+ +------------------------------------------------------------------------------
+ * 表单样式
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整体颜色总汇
+ +------------------------------------------------------------------------------
+ * @codex  颜色:使用颜色的名称或者16进制代码,如 
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.ff8600,ff86aa a{ color:#ff8600;}
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整字体大小
+ +------------------------------------------------------------------------------
+ * @codex   字体大小,直接使用"font+字体大小"作为名称,如
+ * @package  ORG
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.font14px{ font-size:14px;}
+.font9pt{ font-size:9pt;}
+/*自定义字体*/
+/* @font-face {  font-family: danley;  src: url('../font/danley.ttf');  }  .danley {  font-family: danley; } */
+
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整布局命名规范
+ +------------------------------------------------------------------------------
+ * @codex   id和class命名采用该版块的英文单词或组合命名 如:newRelease
+ * @package  ORG
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+ body{font-family: "Microsoft YaHei",sans-serif;}
+ 
+ .css3{
+ 	/*transition: all 0.3s ease-in-out 0s;*/
+	
+	-webkit-transform:translate3d(0, -20px, 0);
+	-ms-transform:translate3d(0, -20px, 0);
+	transform:translate3d(0, -20px, 0);
+	
+	-webkit-transition-property:opacity, -webkit-transform;
+	transition-property:opacity, transform;
+	-webkit-transition-duration:1000ms;
+	transition-duration:1000ms;
+	-webkit-transition-timing-function:cubic-bezier(0.25, 0.46, 0.33, 0.98);
+	transition-timing-function:cubic-bezier(0.25, 0.46, 0.33, 0.98);
+	
+	-webkit-transition-delay:800ms;
+	transition-delay:800ms
+}
+.css3.animated{
+	-webkit-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+}
+ 
+@media screen and (max-width: 650px) {    
+  
+  }
+  
+  @media screen and (max-width: 480px) {   
+	 
+  }
+.rotate
+{
+transform:rotate(7deg);
+-ms-transform:rotate(7deg); 	/* IE 9 */
+-moz-transform:rotate(7deg); 	/* Firefox */
+-webkit-transform:rotate(7deg); /* Safari 和 Chrome */
+-o-transform:rotate(7deg); 	/* Opera */
+}
+body,input,textarea,select,button{
+	font-family: "黑体";
+}
+body{
+	background: #c0c0c0;
+}
+.wrapper{
+	width: 750px;
+	margin:0 auto;
+	background:#f7f7f7;
+}
+.head{
+	height: 88px;
+	line-height: 88px;
+	background: #fff;
+	position: relative;
+	overflow: hidden;
+}
+.head .area{
+	position: absolute;
+	left:30px;
+	top:0px;
+}
+.head .area select{
+	border: 0; appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	width: 80px;
+	font-size: 30px;
+	color:#333333;
+	background: url(../imgs/1.png) no-repeat bottom right ;
+}
+.head .srch{
+	margin: 14px 0 0 138px;
+}
+.head .srch input{
+	width: 473px;
+	height: 58px;
+	border-radius: 10px;
+	font-size: 30px;
+	background: url(../imgs/2.png) no-repeat #eeeeee 20px center;
+	border:1px solid #d9d9d9;
+	padding-left: 55px;
+}
+.link{
+	position: absolute;
+	right:0;
+	top:0;
+	width: 80px;
+	height: 88px;
+	text-align: center;
+}
+.link img{
+	vertical-align: middle;
+}
+/*head end*/
+.slider{
+	overflow: hidden;
+	position: relative;
+}
+.slider ul{
+	height: auto;
+	overflow: hidden;
+	width: 999999px;
+}
+.slider li{
+	float:left;
+}
+.slider .num{
+	position: absolute;
+	bottom: 18px;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.slider .num dd{
+	width: 20px;
+	height: 4px;
+	background: rgba(255,255,255,0.5);
+	bottom: 40px;
+	display: inline-block;
+}
+.slider .num dd.selected{
+	background: #fff;
+}
+/*slider end*/
+.taber{
+	margin-top:25px;
+	background: #fff;
+}
+.taber .header{
+	padding: 0 30px;
+	height: 65px;
+	line-height: 65px;
+	position: relative;
+/*	border-bottom: 1px solid #ccc;*/
+}
+.taber .header:after{
+	content: "";
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	height: 1px;
+	background: #ccc;
+}
+.taber .header ul{
+	display: flex;
+}
+.taber .header li{
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	color: #999999;
+}
+.taber .header li a{
+	text-decoration: none;
+	color:#999999;
+}
+.taber .header li.selected a{
+	color:#333333;
+}
+
+.taber .header em{
+	width: 34px;
+	height: 4px;
+	background: #00a0e9;
+	position: absolute;
+	left:0;
+	bottom:0;
+}
+.taber .body{
+	padding:30px;
+	border-bottom: 1px solid #ececec;
+}
+.taber .body ul{
+	height: auto;
+	overflow: hidden;
+}
+.taber .body li{
+	width: 222px;
+	height: 118px;
+	float: left;
+	position: relative;
+	padding-left:120px;
+}
+.taber .body li .txt{
+	margin-top:20px;
+}
+.taber .body li .txt h3{
+	color:#333333;
+	font-size: 28px;
+}
+.taber .body li .txt h4{
+	color:#666666;
+	font-size: 26px;
+}
+.taber .body li .ico{
+	position: absolute;
+	left:20px;
+	top:10px;
+}
+.taber .body li{
+	border-bottom: 1px solid #ececec;
+}
+.taber .body li:nth-child(even){
+	border-left: 1px solid #ececec;
+}
+.taber .body li:nth-child(3){
+	border-bottom: none;
+	padding-top: 30px;
+}
+.taber .body li:nth-child(3) .ico{
+	top:42px;
+}
+.taber .body li:nth-child(4){
+	border-bottom: none;
+	padding-top: 30px;
+}
+.taber .body li:nth-child(4) .ico{
+	top:42px;
+}
+.taber .change{
+	height: 60px;
+	line-height: 60px;
+	background: #f7f7f7;
+	text-align: center;
+	font-size: 24px;
+
+}
+.taber .change a{
+	background: url(../imgs/8.png) no-repeat right;
+	text-decoration: none;
+	padding-right: 34px;
+	display: inline-block;
+	color: #333333;
+}
+.list{
+	background: #fff;
+}
+.list .head{
+	height: 66px;
+	line-height: 66px;
+	border-bottom: 1px solid #ececec;
+	font-size: 30px;
+	padding-left: 55px;
+	position: relative;
+}
+.list .head:before{
+	width:6px;
+	height: 38px;
+	content: "";
+	display: block;
+	background: #00a0e9;
+	position: absolute;
+	left:29px;
+	top:15px;
+	border-radius: 3px;
+}
+.list .content li{
+	border-bottom: 1px solid #ececec;
+	padding:34px 29px;
+	position: relative;
+}
+.list .content .left{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	border:1px solid;
+	text-align: center;
+	line-height: 110px;
+	font-size: 26px;
+}
+.list .content .middle{
+	margin-left: 180px;
+}
+.list .content .middle h4{
+	font-size: 30px;
+	line-height: 1;
+}
+.list .content .middle h5{
+	font-size: 26px;
+	color:#666666;
+	line-height: 1;
+	margin-top:28px;
+}
+.list .content .middle .time{
+	background: url(../imgs/17.png) no-repeat left;
+	padding-left:33px;
+}
+.list .content .middle .place{
+	background: url(../imgs/18.png) no-repeat left;
+	padding-left:33px;
+	background-size: 20px 28px;
+}
+.list .content  .right{
+	position: absolute;
+	right:40px;
+	top:36px;
+}
+.list .content .right h4{
+	font-size:30px;
+	color:#00a0e9;
+}
+.list .content .right a{
+	font-size: 20px;
+	display: inline-block;
+	padding:3px;
+	border:1px solid;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-left: 2px;
+}
+.list .content .right .tip{
+	margin-top:68px;
+	text-align:right;
+}
+.footer{
+	height: 100px;
+	margin-top:20px;
+	background: #fff;
+}
+.footer ul{
+	display: flex;
+}
+.footer li{
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	position: relative;
+}
+.footer li .ico{
+	margin-top:18px;
+}
+.footer li a{
+	text-decoration: none;
+}
+.footer li .txt{
+	font-size: 20px;
+	color:#bdc5c9;
+}
+.footer li.selected .txt{
+	color:#00a0e9;
+}
+.footer li .ico1{
+	background:url(../imgs/9.png) no-repeat center 20px;
+	width: 100%;
+	height: 100%;
+}
+.footer li .ico2{
+	background:url(../imgs/10.png) no-repeat center 20px;
+	width: 100%;
+	height: 100%;
+}
+.footer li .ico3{
+	background:url(../imgs/11.png) no-repeat center 20px;
+	width: 100%;
+	height: 100%;
+}
+.footer li .ico4{
+	background:url(../imgs/12.png) no-repeat center 20px;
+	width: 100%;
+	height: 100%;
+}
+.footer li .txt{
+	position: absolute;
+	bottom: 8px;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.footer li.selected .ico1{
+	background:url(../imgs/13.png) no-repeat center 20px;
+}
+.footer li.selected .ico2{
+	background:url(../imgs/14.png) no-repeat center 20px;
+}
+.footer li.selected .ico3{
+	background:url(../imgs/15.png) no-repeat center 20px;
+}
+.footer li.selected .ico4{
+	background:url(../imgs/16.png) no-repeat center 20px;
+}
+
+/*ui*/
+.circle-blue{
+	border:1px solid #62c3c5;
+	color:#62c3c5;
+}
+.circle-green{
+	border:1px solid #d1f091;
+	color:#d1f091;
+}
+.circle-red{
+	border:1px solid #b8406e;
+	color:#b8406e;
+}
+.di,.ri,.yue,.zhou{
+	border-color:#f66060;
+	color:#f66060;
+}
+.ji{
+	border-color:#00a0e9;
+	color:#00a0e9;
+}

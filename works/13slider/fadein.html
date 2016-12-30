@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style type="text/css">
+      html,body,ul,li,p{
+        margin:0;
+        padding:0;
+      }
+      li{
+        list-style: none;
+      }
+      a{
+        text-decoration: none;
+      }
+      .wrap{
+        position:relative;
+        width:310px;
+        height:206px;
+        overflow: hidden;
+        margin:0 auto;
+      }
+      .wrap .imgPa{
+        position:relative;
+     
+      }
+    /*  .wrap .imgPa:after{
+        content:"";
+        height:0;
+        display: block;
+        clear:both;
+      }*/
+      .wrap .imgpa img{
+        width:310px;
+        height:206px;
+      }
+      .wrap .imgPa li{
+        position:absolute;
+        display: none;
+      }
+      .arrow{
+        position:absolute;
+        width:36px;
+        height:36px;
+        top:50%;
+        margin-top:-18px;
+        line-height: 36px;
+        text-align: center;
+        font-size:26px;
+        background-color: #ccc;
+        color:#fff;
+        border-radius: 36px;
+        opacity: 0.7;
+      }
+      
+      .arrow:hover{
+        opacity: 1;
+      }
+
+      .pre{
+        left: 10px;
+      }
+
+      .next{
+        right:10px;
+      }
+      
+      .control-pannel{
+        position: absolute;
+        bottom:10px;
+        left:50%;
+        transform: translateX(-50%);
+      }
+      
+      .control-pannel li{
+        width:16px;
+        height:4px;
+        border-radius: 2px;
+        background:#fff;
+        display:inline-block;
+      }
+      .control-pannel .active{
+        background:#666;
+      }
+      .intro{
+        text-align: center;
+      }
+  </style>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script>
+  	   $(function(){
+
+
+       var $wrap=$('.imgPa'),
+           $items=$wrap.children(),
+           $pre=$('.pre'),
+           $next=$('.next'),
+           $controlP=$('.control-pannel'),
+           $imgCount=$items.length;
+
+
+        var imgIndex=0;
+        var locked=false;
+
+
+        $pre.on('click',function(){
+           playPre();
+        })
+
+        $next.on('click',function(){
+           playNext();
+        })
+
+        $controlP.find('li').on('click',function(){
+          var idx=$(this).index();
+          play(idx);
+        })
+
+
+        function playNext(){
+           play((imgIndex+1)%$imgCount);
+           //if()==4?写法忘了
+        }
+
+        function playPre(){
+           play(($imgCount+imgIndex-1)%$imgCount);
+           //看不懂
+        }
+
+        function play(index){
+          if(locked){return};
+          locked=true;
+          $items.eq(imgIndex).fadeOut(500);
+          $items.eq(index).fadeIn(500,function(){
+            locked=false;
+          });
+          imgIndex=index;
+          setBullet();
+        }
+
+
+        function setBullet(){
+          $controlP.children().removeClass('active').eq(imgIndex).addClass('active');
+        }
+
+        function autoPlay(){
+           setInterval(function(){
+              play()
+           },2000)
+        }
+       })
+
+
+
+
+  </script>	
+
+</head>
+
+<body>
+  <div class="wrap">
+      <ul class="imgPa">
+        <li style="display:block"><a href="#"><img src="1.jpg"></a></li>
+        <li><a href="#"><img src="2.jpg"></a></li>
+        <li><a href="#"><img src="3.jpg"></a></li>
+        <li><a href="#"><img src="4.jpg"></a></li>
+      </ul>
+      <a class="pre arrow" href="#"><</a>
+      <a class="next arrow" href="#">></a>
+      <ul class="control-pannel">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+  </div>
+  <div class="intro">
+  <h3>淡入淡出轮播</h3>
+  </div>
+</body>
+</html>

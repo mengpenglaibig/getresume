@@ -19,7 +19,7 @@ body{
 }	   	
 .header .nav{
 	position:absolute;
-	left: 390px;
+	left: 340px;
 }
 .header .nav ul{
 	height: auto;
@@ -399,9 +399,31 @@ body{
 	width: 1200px;
 	margin:0 auto;
 }
-
+.work .nav{
+	margin-top:15px;
+}
+.work .nav ul{
+	height: auto;
+	overflow: hidden;
+}
+.work .nav li{
+	float: left;
+	width:100px;
+	height: 30px;
+	line-height: 30px;
+	background: #b3b7bb;
+	text-align: center;
+	border-radius: 10px;
+	margin-left:5px;
+	-moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
+    box-shadow: 1px 1px 5px #888888;
+    cursor: pointer;
+}
+.work .nav li.selected{
+	background: #edeeef;
+}
 .work .worklist{
-	margin-top:25px;
+	margin-top:15px;
 }
 .work .worklist ul{
 	height: auto;

@@ -459,7 +459,7 @@ body{
 }
 .footer ul{
 	display: flex;
-	display: -webkit-box;
+	display: -webkit-flex;   
 }
 .footer li{
 	width: 100%;

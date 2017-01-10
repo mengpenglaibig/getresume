@@ -459,6 +459,7 @@ body{
 }
 .footer ul{
 	display: flex;
+	display: -webkit-box;
 }
 .footer li{
 	width: 100%;

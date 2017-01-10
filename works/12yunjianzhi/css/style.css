@@ -281,6 +281,7 @@ body{
 }
 .taber .header ul{
 	display: flex;
+	display: -webkit-flex;     
 }
 .taber .header li{
 	width: 100%;

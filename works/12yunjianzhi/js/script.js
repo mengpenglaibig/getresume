@@ -23,7 +23,10 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 
 $(function(){
 	
-	
+	function closeDiv(id){
+	$('#'+ id).hide();
+	return false;
+	}
 	//页面不足一屏，铺满一屏
 	$('.layout').css('min-height',$(window).height());
 	
@@ -61,7 +64,10 @@ $(function(){
 			$('.taber .body').hide().eq($(this).index()).show();
 			return false;
 		})
-		
+			
 	})
+
+	//关闭弹窗
+
 })
 

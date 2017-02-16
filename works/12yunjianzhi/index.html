@@ -264,6 +264,23 @@
 		</ul>
 	</div>
 </div>
+<div class="forapp">
+	<div class="download" id="download">
+		<div class="l">
+			<div class="ico">
+				<img src="imgs/wz47.png">
+			</div>
+			<h2>云兼职</h2>
+			<h4>让工作变得简单</h4>
+		</div>
+		<div class="r">
+			<a href="#">立即下载</a>
+		</div>
+		<em onclick="closeDiv('download')"></em>
+	</div>
+</div>
+<div class="h_footer">
+</div>
 <div class="footer">
 		<ul>
 			<li class="selected">
@@ -298,7 +315,12 @@
 	</div>
 <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-
+<script type="text/javascript">
+	function closeDiv(id){
+	$('#'+ id).hide();
+	return false;
+	}
+</script>
 </body>
 </html>
 

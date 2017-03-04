@@ -202,6 +202,8 @@ transform:rotate(7deg);
 .home-slide{
 	position: relative;
 	overflow: hidden;
+	height: 538px;
+	background: #090e12;
 }
 .home-slide img{
 	width: 640px;

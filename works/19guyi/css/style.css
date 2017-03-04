@@ -222,7 +222,10 @@ transform:rotate(7deg);
 	text-decoration: none;
 }
 .home-nav ul{
-	display: flex;
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
 }
 .home-nav li{
 	width: 100%;

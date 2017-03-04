@@ -221,6 +221,7 @@ transform:rotate(7deg);
 .home-slider{
 	height: 380px;
 	overflow: hidden;
+	background: #010100;
 }
 .home-nav a{
 	text-decoration: none;

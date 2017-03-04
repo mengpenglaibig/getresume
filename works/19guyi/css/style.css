@@ -218,6 +218,11 @@ transform:rotate(7deg);
 	height: 117px;
 	background:#f6f6f6;
 }
+.home-slider{
+	width: 640px;
+	height: 380px;
+	overflow: hidden;
+}
 .home-nav a{
 	text-decoration: none;
 }

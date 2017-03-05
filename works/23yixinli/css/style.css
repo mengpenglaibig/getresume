@@ -1,0 +1,491 @@
+/*@charset "gb2312";*/
+/**
+ * 
+ * ----------------------------------------------------------------------------
+
+ html{-webkit-text-size-adjust:none; /*解决chrome浏览器下字体不能小于12px*/}
+ body{ color:#000000; font-family:Verdana, Arial, Helvetica, sans-serif;}
+ * {}
+a{outline:none; text-decoration:none;} a:hover{ text-decoration:underline;}
+html{zoom:1;}html *{outline:0;zoom:1;} html button::-moz-focus-inner{border-color:transparent!important;} 
+body{overflow-x: hidden; font-size:12px;} body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;} table{/*border-collapse:collapse;border-spacing:0;*/} fieldset,a img{border:0;} address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;} li{list-style:none;} caption,th{text-align:left;} h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;} q:before,q:after{content:'';}
+input[type="submit"], input[type="reset"], input[type="button"], button { -webkit-appearance: none; /*去掉苹果的默认UI来渲染按钮*/} em,i{ font-style:normal;}
+
+
+
+/**
+ +------------------------------------------------------------------------------
+ * Public Class
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }.clearfix {display:block;}.clear{ clear:both;}/* 清除浮动*/
+.colwrapper { overflow:hidden; zoom:1 /*for ie*/; margin:5px auto; }/* 高度自适应 */ 
+.strong{ font-weight: bold;} .left{ float: left;} .right{ float: right;} .center{ margin:0 auto; text-align:center;}
+.show{ display:block; visibility:visible;}.hide{ display: none; visibility:hidden;}
+.block{ display:block;} .inline{ display:inline;}
+.transparent{filter:alpha(opacity=50); -moz-opacity:0.5;/** Firefox 3.5即将原生支持opacity属性，所以本条属性只在Firefox3以下版本有效 ***/ -khtml-opacity: 0.5; opacity: 0.5; } .break{ word-wrap:break-word;overflow:hidden; /*word-break:break-all;*/}
+
+.tal{ text-align:left} .tar{ text-align:right;}
+
+/*文字两侧对齐*/
+.justify {
+	text-align:justify;
+	text-justify:distribute-all-lines;/*ie6-8*/
+	text-align-last:justify;/* ie9*/
+	-moz-text-align-last:justify;/*ff*/
+	-webkit-text-align-last:justify;/*chrome 20+*/
+}
+
+.toe{
+	/*超出省略号*/
+	 word-break:keep-all;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){/* chrome*/
+	.justify:after{
+		content:".";
+		display: inline-block;
+		width:100%;
+		overflow:hidden;
+		height:0;
+	}
+}
+
+/* 兼容IE6的定位属性fixed，固定不动样式 */
+.fixed{
+	position:fixed; 
+	clip:rect(0 100% 100% 0);
+	_position:absolute;
+	
+	/* 底部 */
+	bottom:0px;
+	left:0px;
+	_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight);
+	/*_left:expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth);*/
+	
+	/* 左侧 */
+	/*left:0px;*/
+	/*_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight);*/
+	/*_left:expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth);*/
+}
+/* 解决固定层在IE6下闪的问题 */
+*html{
+	background-image:url(about:blank);
+	background-attachment:fixed;
+}
+
+
+/*png图片ie6下透明滤镜实现写法*/
+.pngimg{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='images/x.png');}
+
+/**
+ +------------------------------------------------------------------------------
+ * FCK 兼容解决方案
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+em{ font-style:italic !important;} strike{ text-decoration:line-through !important;} strong{ font-weight:bold !important;} u{ text-decoration:underline !important;}
+
+/**
+ +------------------------------------------------------------------------------
+ * 表单样式
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整体颜色总汇
+ +------------------------------------------------------------------------------
+ * @codex  颜色:使用颜色的名称或者16进制代码,如 
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.ff8600,ff86aa a{ color:#ff8600;}
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整字体大小
+ +------------------------------------------------------------------------------
+ * @codex   字体大小,直接使用"font+字体大小"作为名称,如
+ * @package  ORG
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.font14px{ font-size:14px;}
+.font9pt{ font-size:9pt;}
+/*自定义字体*/
+/* @font-face {  font-family: danley;  src: url('../font/danley.ttf');  }  .danley {  font-family: danley; } */
+
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整布局命名规范
+ +------------------------------------------------------------------------------
+ * @codex   id和class命名采用该版块的英文单词或组合命名 如:newRelease
+ * @package  ORG
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+ body{font-family: "Microsoft YaHei",sans-serif;}
+ 
+ .css3{
+ 	/*transition: all 0.3s ease-in-out 0s;*/
+	
+	-webkit-transform:translate3d(0, -20px, 0);
+	-ms-transform:translate3d(0, -20px, 0);
+	transform:translate3d(0, -20px, 0);
+	
+	-webkit-transition-property:opacity, -webkit-transform;
+	transition-property:opacity, transform;
+	-webkit-transition-duration:1000ms;
+	transition-duration:1000ms;
+	-webkit-transition-timing-function:cubic-bezier(0.25, 0.46, 0.33, 0.98);
+	transition-timing-function:cubic-bezier(0.25, 0.46, 0.33, 0.98);
+	
+	-webkit-transition-delay:800ms;
+	transition-delay:800ms
+}
+.css3.animated{
+	-webkit-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+}
+ 
+@media screen and (max-width: 650px) {    
+  
+  }
+  
+  @media screen and (max-width: 480px) {   
+	 
+  }
+.rotate
+{
+transform:rotate(7deg);
+-ms-transform:rotate(7deg); 	/* IE 9 */
+-moz-transform:rotate(7deg); 	/* Firefox */
+-webkit-transform:rotate(7deg); /* Safari 和 Chrome */
+-o-transform:rotate(7deg); 	/* Opera */
+}
+body{
+	background: #f2f2f2;
+}
+.wrap{
+	width: 640px;
+	margin: 0 auto;
+}
+.wrap .header{
+	height: 90px;
+	line-height: 90px;
+	background: #118bd0;
+	text-align: center;
+	position: relative;
+	font-size: 34px;
+	color: #fff;
+}
+.wrap .header .user-img{
+	position: absolute;
+	right: 23px;
+	top: 15px;
+}
+.home-naver{
+	padding-top: 30px;
+	background: #fff;
+}
+.home-naver a{
+	text-decoration: none;
+}
+.home-naver ul{
+	height: auto;
+	overflow: hidden;
+}
+.home-naver li{
+	width: 25%;
+	float: left;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.home-naver li span{
+	display: block;
+	line-height:1;
+	margin-top: 13px;
+	font-size: 24px;
+	color: #666666;
+}
+.home-slide{
+	position: relative;
+	width: 640px;
+	height: 320px;
+}
+/*.home-slide .slider-nav{
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 88px;
+	bottom: 0;
+	background: rgba(0,0,0,0.3);
+}*/
+.home-slide h2{
+	height: 85px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	color: #fff;
+	font-size: 28px;
+	padding-top: 5px;
+	background: rgba(0,0,0,0.3);
+}
+.home-slide .slider-nav__item{
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background: #999999;
+}
+.home-slide .slider-nav__item--current{
+	background: #fff;
+}
+.home-title{
+	height: 80px;
+	line-height: 80px;
+	font-size: 26px;
+	color: #999999;
+	position: relative;
+}
+.home-title span{
+	padding-left: 48px;
+}
+.home-title:before{
+	width: 10px;
+	height: 36px;
+	background: #4fb2ea;
+	content: "";
+	position: absolute;
+	top: 20px;
+	left: 23px;
+	border-radius: 5px;
+}
+.home-modle .body{
+	background: #fff;
+	padding: 0 24px;
+}
+.home-modle .body li{
+	border-bottom: 1px solid #efefef;
+	
+}
+.home-main1 .body li{
+	position: relative;
+	height: 190px;
+}
+.home-modle .body li a{
+	color: #222222;
+	text-decoration:none;
+}
+.home-main1 .body li .img{
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+.home-main1 .body li .txt{
+	margin-left: 226px;
+	padding-top: 34px;
+	position: relative;
+	height: 115px;
+}
+.home-main1 .body li .txt h2{
+	font-size: 30px;
+}
+.home-main1 .body li .txt h3{
+	font-size: 20px;
+	color: #a3a3ab;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.home-main1 .body li .txt .tag{
+	position: absolute;
+	right:0;
+	bottom:0;
+}
+.home-main1 .body li .txt .tag dd{
+	display: inline;
+	font-size: 20px;
+	color: #c4c1c1;
+	margin-left: 25px;
+	padding-left: 35px;
+}
+.home-main1 .body li .txt .tag dd.dp{
+	background: url(../imgs/img89.png) no-repeat left center;
+}
+.home-main1 .body li .txt .tag dd.gk{
+	background: url(../imgs/img90.png) no-repeat left center;
+}
+.home-modle li:last-child{
+	height: 85px !important;
+	line-height: 85px;
+	text-align: center;
+	font-size: 25px;
+	color: #444444;
+	border: 0;
+}
+.home-modle li:last-child a{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+.home-main2 .body{
+	overflow: hidden;
+}
+.home-main2 .body dl{
+	height: auto;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.home-main2 .body dd{
+	float: left;
+	width: 33.33%;
+	text-align: center;
+	padding-bottom: 34px;
+}
+.home-main2 .body dd h2{
+	font-size: 23px;
+	margin-top: 15px;
+}
+.home-main2 .body dd p{
+	font-size: 22px;
+	color: #148dd1;
+	margin-top: 15px;
+}
+.home-main3 .body{
+	overflow: hidden;
+}
+.home-main3 .body dl{
+	height: auto;
+	overflow: hidden;
+	margin-top: 30px;
+}
+.home-main3 .body dd{
+	width: 33.33%;
+	float: left;
+	text-align: center;
+	padding-bottom: 34px;
+}
+.home-main3 .body dd h3{
+	font-size: 23px;
+	text-align: left;
+	margin-top: 15px;
+	line-height: 1;
+}
+.home-main3 .body dd .tag{
+	text-align: left;
+	margin-top: 22px;
+}
+.home-main3 .body dd .img{
+	position: relative;
+}
+.home-main3 .body dd .img .ico{
+	position: absolute;
+	width: 48px;
+	height: 49px;
+	right: 10px;
+	bottom: 6px;
+	background: url(../imgs/img108.png) no-repeat;
+}
+.home-main3 .body dd img{
+	position: relative;
+	top: 7px;
+}
+.home-main3 .body dd span{
+	margin-left: 13px;
+	font-size: 17px;
+	color: #b9b9b9;
+}
+.home-main4 .body li{
+	position: relative;
+	height: 160px;
+	overflow: hidden;
+}
+.home-main4 .body li .img{
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+.home-main4 .body li .txt{
+	margin-left: 140px;
+	margin-top: 30px;
+}
+.home-main4 .body li .txt h2{
+	font-size: 25px;
+}
+.home-main4 .body li .txt span{
+	background: url(../imgs/img113.png) no-repeat left center;
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 30px;
+	font-size: 16px;
+	color: #999999;
+	margin-top: 17px;
+}
+.home-main5 .body{
+	overflow: hidden;
+}
+.home-main5 .body li dl{
+	margin-top: 28px;
+	height: auto;
+	overflow: hidden;
+	padding-bottom: 30px;
+}
+.home-main5 .body li dd{
+	width: 50%;
+	float: left;
+	display: inline;
+	text-align: center;
+}
+.home-main5 .body li dd h2{
+	font-size: 24px;
+	width: 210px;
+	margin: 0 auto;
+}
+.home-main5 .body li dd .time{
+	font-size: 16px;
+	color: #c5c5c5;
+	margin-top: 23px;
+}
+.home-main5 .body li dd .time span{
+	display: inline-block;
+	width: 50px;
+	height: 34px;
+	line-height: 34px;
+	border-radius: 5px;
+	background:#118bd0;
+	color: #fff;
+	font-size: 21px;
+}
+.footer{
+	height: 180px;
+	overflow: hidden;
+}
+.footer .txt{
+	margin-top: 50px;
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+}
+.footer .txt a{
+	text-decoration: none;
+	color: #4b4b4b;
+}
+.footer .copyright{
+	text-align: center;
+	font-size: 16px;
+	color: #b2a9a1;
+	margin-top: 30px;
+}

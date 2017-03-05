@@ -408,7 +408,7 @@ body{
 }
 .work .nav li{
 	float: left;
-	width:100px;
+	width:120px;
 	height: 30px;
 	line-height: 30px;
 	background: #b3b7bb;
@@ -432,6 +432,7 @@ body{
 }
 .work .worklist li{
 	width: 216px;
+	height: 227px;
 	background: #fff;
 	padding:10px;
 	float:left;
@@ -508,7 +509,7 @@ body{
 	margin-top:20px;
 }
 .work .worklist li .txt{
-	margin-top:20px;
+	margin-top:10px;
 }
 .work .worklist li .txt a{
 	color:red;

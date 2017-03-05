@@ -110,7 +110,7 @@
 	#fp-nav{
 		display: none!important;
 	}
-	.work .nav li{
+	.work .nav{
 		display: none;
 	}
 }
